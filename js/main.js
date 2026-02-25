@@ -742,9 +742,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // -------------------------
-  // Send Message
-  // -------------------------
-  async function sendMessage() {
+// Send Message
+// -------------------------
+
+async function sendMessage() {
 
   const text = chatInput.value.trim();
   if (!text) return;
@@ -763,6 +764,13 @@ document.addEventListener("DOMContentLoaded", () => {
     role: "user",
     content: text
   });
+
+  // ✅ Add thinking bubble
+  const thinkingBubble = document.createElement('div');
+  thinkingBubble.classList.add('chat-msg', 'bot');
+  thinkingBubble.textContent = "…";
+  chatMessages.appendChild(thinkingBubble);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
 
   try {
 
@@ -784,6 +792,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const data = await response.json();
     const reply = data.choices[0].message.content;
 
+    // Remove thinking bubble
+    thinkingBubble.remove();
+
     sessionMemory.history.push({
       role: "assistant",
       content: reply
@@ -799,6 +810,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   } catch (err) {
 
+    thinkingBubble.remove();
+
     addMessage("We’re experiencing high load. Please try again shortly.", 'bot');
     setOrbState('idle');
 
@@ -809,20 +822,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 }
 
-  const thinkingBubble = document.createElement('div');
-thinkingBubble.classList.add('chat-msg', 'bot');
-thinkingBubble.textContent = "…";
-chatMessages.appendChild(thinkingBubble);
-chatMessages.scrollTop = chatMessages.scrollHeight;
-thinkingBubble.remove();
+// Attach listeners
+sendBtn.addEventListener('click', sendMessage);
 
-  sendBtn.addEventListener('click', sendMessage);
-
-  chatInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
-    }
-  });
+chatInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+});
 
 });
