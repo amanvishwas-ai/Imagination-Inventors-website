@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Basic Meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Imagination Inventors | Robotics & Physical AI Research Lab</title>
+
+<meta name="description" content="Imagination Inventors is a next-generation robotics and physical AI research lab founded by Aman Vishwas in India, engineering real-world intelligent systems through robotics, embedded systems, and systems-level AI architecture.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Aman Vishwas">
+<meta name="theme-color" content="#04040c">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://imaginationinventors.netlify.app">
+
+<!-- Favicon -->
+<!-- Multiple sizes for different devices -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.png">
+
+
+<!-- Open Graph -->
+<meta property="og:title" content="Imagination Inventors | Robotics & Physical AI Research Lab">
+<meta property="og:description" content="Engineering intelligent machines that operate in the physical world.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://imaginationinventors.netlify.app">
+<meta property="og:image" content="https://imaginationinventors.netlify.app/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Imagination Inventors | Robotics & Physical AI Research Lab">
+<meta name="twitter:description" content="Independent robotics and physical AI research lab building real-world intelligent systems.">
+<meta name="twitter:image" content="https://imaginationinventors.netlify.app/og-image.png">
+
+<!-- Performance: Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Non-blocking Google Font -->
+<link rel="preload" 
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+</noscript>
+
+
+<link rel="preload" 
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</noscript>
+
+
+
+
+<!-- Organization Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Imagination Inventors",
+  "url": "https://imaginationinventors.netlify.app",
+  "logo": "https://imaginationinventors.netlify.app/logo.png",
+  "founder": {
+    "@type": "Person",
+    "name": "Aman Vishwas"
+  },
+  "sameAs": [
+    "https://github.com/Imagination-Inventors",
+    "https://github.com/amanvishwas-ai"
+  ]
+}
+</script>
+
+<!-- Founder Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Aman Vishwas",
+  "jobTitle": "Founder",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Imagination Inventors"
+  },
+  "url": "https://amanvishwas.netlify.app",
+  "sameAs": [
+    "https://github.com/amanvishwas-ai"
+  ]
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<!-- Navbar -->
+<nav>
+  <div class="logo">
+    <img src="logo.png" alt="Imagination Inventors Logo">
+  </div>
+
+  <div class="nav-links" id="navLinks">
+  <a href="index.html">Home</a>
+  <a href="projects/projects.html">Projects</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="login.html" class="nav-login">Login</a>
+</div>
+
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+<div class="menu-overlay" id="menuOverlay"></div>
+<main>
+
+    <!-- Hero -->
+<header class="hero reveal" id="hero">
+
+
+
+  <p class="hero-tagline">
+    Independent Robotics & Physical AI Lab · India
+  </p>
+
+  <h1 class="hero-title">
+    Engineering Intelligence
+    <br>
+    for the Physical World
+  </h1>
+
+  <p class="hero-description">
+    Imagination Inventors designs and prototypes real-world intelligent systems —
+    combining robotics engineering, embedded intelligence, and systems-level AI architecture.
+  </p>
+
+  <div class="btn-group">
+    <a class="btn btn-primary" href="#join-section reveal">Join the Lab</a>
+    <a class="btn" href="/projects">Explore Projects</a>
+  </div>
+
+</header>
+
+<div class="orb-container">
+  <div class="orb-wrapper">
+    <svg class="orb" viewBox="0 0 200 200">
+
+      <circle cx="100" cy="100" r="70" class="orb-body"/>
+      <circle cx="100" cy="100" r="60" class="orb-ring"/>
+
+      <!-- Visor Base -->
+<!-- Eye Base Background -->
+<rect x="55" y="88" width="90" height="24" rx="12" class="visor-base"/>
+
+<!-- Left Eye -->
+<circle cx="80" cy="100" r="8" class="eye-socket"/>
+<circle cx="80" cy="100" r="5" class="eye-pupil left-eye"/>
+
+<!-- Right Eye -->
+<circle cx="120" cy="100" r="8" class="eye-socket"/>
+<circle cx="120" cy="100" r="5" class="eye-pupil right-eye"/>
+
+<!-- Scan Line -->
+<rect x="55" y="88" width="90" height="3" class="scan-line"/>
+
+<!-- Eyelid -->
+<rect x="55" y="88" width="90" height="24" rx="12" class="eyelid"/>
+
+    </svg>
+  </div>
+</div>
+
+
+<div class="chat-panel">
+
+  <div class="chat-header">
+    <span>Orb Assistant</span>
+    <button class="chat-close">×</button>
+  </div>
+
+  <div class="chat-messages"></div>
+
+  <div class="chat-input-area">
+    <textarea class="chat-input" rows="1" placeholder="Ask Anything..."></textarea>
+    <button class="send-btn">➤</button>
+  </div>
+
+</div>
+
+
+<section class="research-focus reveal">
+
+  <h2 class="section-title">Research Focus</h2>
+
+  <div class="focus-grid">
+
+    <div class="focus-card">
+      <h3>Embedded Intelligence</h3>
+      <p>
+        Designing AI systems that operate directly on microcontrollers 
+        and constrained hardware environments.
+      </p>
+    </div>
+
+    <div class="focus-card">
+      <h3>Physical Robotics Systems</h3>
+      <p>
+        Engineering autonomous machines that interact with the real world 
+        through sensing, motion, and decision logic.
+      </p>
+    </div>
+
+    <div class="focus-card">
+      <h3>Human–Machine Interaction</h3>
+      <p>
+        Building intuitive systems that respond to voice, sound, 
+        environment, and user intent.
+      </p>
+    </div>
+
+    <div class="focus-card">
+      <h3>Low-Cost Innovation</h3>
+      <p>
+        Creating high-impact engineering systems using affordable 
+        and accessible hardware platforms.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+<section class="research-progression">
+  <h2 class="section-title reveal">Research Progression</h2>
+  <p class="section-intro reveal">
+    Built through self-directed experimentation and iterative systems design.
+  </p>
+
+<div class="timeline-item reveal">
+  <a href="/projects/amvish" class="timeline-card">
+    
+    <div class="timeline-meta">
+      <span class="timeline-year">November 2024</span>
+    </div>
+
+    <div class="timeline-body">
+      <h3>AmVish_1.0 </h3>
+      <p>
+        A robot that used ChatGPT's voice mode (v3) to interact and also had a heart which gave the robot its life.
+        It was one of the first thing we had built with an Arduino Board.
+      </p>
+    </div>
+
+    <div class="timeline-arrow">
+      →
+    </div>
+
+  </a>
+</div>
+
+<div class="timeline-item reveal">
+  <a href="/projects/amvish" class="timeline-card">
+    
+    <div class="timeline-meta">
+      <span class="timeline-year">February 2025</span>
+    </div>
+
+    <div class="timeline-body">
+      <h3>AI Bin - a dustbin capable of sorting the waste even before it goes inside </h3>
+      <p>
+        We used Audio Classification to make the bin idendify the sort of waste going into it and automatically put them in different sections of the bin, all with zero human inference.
+      </p>
+    </div>
+
+    <div class="timeline-arrow">
+      →
+    </div>
+
+  </a>
+</div>
+
+<div class="timeline-item reveal">
+  <a href="projects/amvish.html" class="timeline-card">
+    
+    <div class="timeline-meta">
+      <span class="timeline-year">August 2025</span>
+    </div>
+
+    <div class="timeline-body">
+      <h3> The Sound Catching Jar</h3>
+      <p>
+        Inspired one of Doraemon's gadgets, we made a cold drink can to catch and store sound...<br><br>
+        <br>
+        Open the cap__speak__close 
+        <br>
+        After some time
+        <br>
+        Open the cap__the sound bursts out! And gets lost forever...
+      </p>
+    </div>
+
+    <div class="timeline-arrow">
+      →
+    </div>     
+  </a>
+</div>
+
+<div class="timeline-item reveal">
+  <a href="projects/amvish.html" class="timeline-card">
+    
+    <div class="timeline-meta">
+      <span class="timeline-year">December 2025</span>
+    </div>
+
+    <div class="timeline-body">
+      <h3>AmViSH_2.0</h3>
+      <p>
+        A little attempt to give an LLM a body, this robot identified itself and was capable of using all the actuators and sensors on its body with its own intent.
+        <br>
+        It was the first time we had a robot that could do things on its own without any human inference, and it was a huge milestone for us.
+      </p>
+    </div>
+
+    <div class="timeline-arrow">
+      →
+    </div>     
+  </a>
+</div>
+
+<div class="timeline-item reveal">
+  <a href="projects/amvish.html" class="timeline-card">
+    
+    <div class="timeline-meta">
+      <span class="timeline-year">February 2026</span>
+    </div>
+
+    <div class="timeline-body">
+      <h3>Imagination Inventors</h3>
+      <p>
+        Yes now we are here, building a lab to do all the crazy stuff we have in our minds, and we are just getting started. We have a lot of ideas and projects in the pipeline, and we can't wait to share them with you all.
+        <br><br>
+        If you are interested, you can join us by filling out the linked interest form , and we will get back to you as soon as possible. We are always looking for motivated students and educators who are interested in building real systems, not just talking about them.
+      </p>
+    </div>
+
+    <div class="timeline-arrow">
+      →
+    </div>     
+  </a>
+</div>
+
+</section>
+<section class="research-direction">
+  <h2 class="section-title reveal">Research Direction</h2>
+
+  <div class="roadmap reveal">
+    <ul>
+      <li>Advancing modular robotics architectures for scalable experimentation</li>
+      <li>Expanding embedded intelligence integration in physical systems</li>
+      <li>Designing distributed AI processing pipelines for real-world deployment</li>
+      <li>Developing natural human-machine interaction frameworks</li>
+      <li>Transitioning prototypes toward robust field-ready systems</li>
+    </ul>
+  </div>
+</section>
+
+<section class="public-footprint reveal">
+
+  <h2 class="section-title">Public Demonstrations & Recognition</h2>
+
+  <div class="footprint-grid">
+
+    <div class="footprint-card">
+      <h3>Open Source Development</h3>
+      <p>
+        Active GitHub repositories documenting embedded systems, 
+        robotics experiments, and AI integrations.
+      </p>
+      <a href="https://github.com/Imagination-Inventors" target="_blank">
+        View GitHub →
+      </a>
+    </div>
+
+    <div class="footprint-card">
+      <h3>Project Demonstrations</h3>
+      <p>
+        Real-world testing of AI Bin, AmViSH, and robotics prototypes 
+        showcased in exhibitions and online.
+      </p>
+    </div>
+
+    <div class="footprint-card">
+      <h3>Academic & Exhibition Participation</h3>
+      <p>
+        Participation in science exhibitions and technical events 
+        focused on practical engineering applications.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="join-section reveal">
+
+  <h2 class="section-title">Who Can Join</h2>
+
+  <p class="section-intro">
+    Imagination Inventors welcomes motivated students and educators 
+    who are genuinely interested in building real systems — not just discussing ideas.
+  </p>
+
+  <div class="join-grid">
+
+    <div class="join-card">
+      <h3>Students</h3>
+      <ul>
+        <li>Curious about robotics or AI</li>
+        <li>Willing to build and experiment</li>
+        <li>Comfortable learning independently</li>
+        <li>Open to long-term collaboration</li>
+      </ul>
+    </div>
+
+    <div class="join-card">
+      <h3>Educators & Mentors</h3>
+      <ul>
+        <li>Interested in guiding hands-on innovation</li>
+        <li>Supportive of independent research culture</li>
+        <li>Encouraging practical engineering exposure</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="join-cta">
+    <a href="apply.html" class="btn btn-primary">Submit Interest Form</a>
+  </div>
+
+</section>
+
+<!-- Footer (Original Quick Links preserved) -->
+<footer class="site-footer">
+
+  <div class="footer-top">
+
+    <div class="footer-identity">
+      <h3>Imagination Inventors</h3>
+      <p>
+        An independent robotics and physical AI research initiative 
+        focused on building real-world intelligent systems through 
+        embedded engineering and hands-on experimentation.
+      </p>
+    </div>
+
+    <div class="footer-nav">
+      <h4>Quick Links</h4>
+      <a href="/">Home</a>
+      <a href="/projects">Projects</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="apply.html">Submit Interest Form</a>
+      <a href="apply.html">Meet the Founder</a>
+    </div>
+
+    <div class="footer-external">
+      <h4>Join Us On</h4>
+      <a href="https://github.com/Imagination-Inventors" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/aman-vishwas-20787b397/" target="_blank">LinkedIn</a>
+      <a href="https://instalink" target="_blank">Instagram</a>
+    </div>
+
+  </div>
+
+<div class="footer-bottom">
+  <div class="footer-meta">
+
+    <span class="meta-block">
+      <label>Status</label>
+      <value>Active</value>
+    </span>
+
+    <span class="meta-block">
+      <label>Type</label>
+      <value>Independent Initiative</value>
+    </span>
+
+    <span class="meta-block">
+      <label>Founder</label>
+      <value>
+        <a href="https://amanvishwas.netlify.app/" target="_blank">
+          Aman Vishwas
+        </a>
+      </value>
+    </span>
+
+<span class="meta-block">
+  <label>Build</label>
+  <value>
+    Research v1.0 · <span id="buildYear"></span>
+  </value>
+</span>
+
+  </div>
+</div>
+</footer>
+
+<script src="js/main.js" defer></script>
+
+
+</body>
+</html>
