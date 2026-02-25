@@ -661,7 +661,9 @@ document.addEventListener('mousemove', (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-
+  let sessionMemory = {
+  history: []
+};
   const orbContainer = document.querySelector('.orb-container');
   const chatPanel = document.querySelector('.chat-panel');
   const hero = document.querySelector('#hero');
