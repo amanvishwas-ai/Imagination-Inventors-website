@@ -661,9 +661,15 @@ document.addEventListener('mousemove', (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  let sessionMemory = {
-  history: []
-};
+
+  // -------------------------
+  // Session Memory
+  // -------------------------
+  let sessionMemory = { history: [] };
+
+  // -------------------------
+  // DOM Elements
+  // -------------------------
   const orbContainer = document.querySelector('.orb-container');
   const chatPanel = document.querySelector('.chat-panel');
   const hero = document.querySelector('#hero');
@@ -672,7 +678,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatMessages = document.querySelector('.chat-messages');
   const closeBtn = document.querySelector('.chat-close');
 
-  if (!orbContainer || !chatPanel || !hero) return;
+  // Fail fast if critical elements missing
+  if (!orbContainer || !chatPanel || !hero || !chatInput || !sendBtn || !chatMessages) {
+    console.error("Chat initialization failed: missing elements");
+    return;
+  }
+
+  // -------------------------
+  // System Prompt (SAFETY)
+  // -------------------------
+  const SYSTEM_PROMPT = window.SYSTEM_PROMPT || 
+    "You are Orb Intelligence, the assistant of Imagination Inventors. Stay in character.";
 
   const initialPlaceholder = "Ask Anything";
   chatInput.placeholder = initialPlaceholder;
@@ -715,10 +731,12 @@ document.addEventListener("DOMContentLoaded", () => {
     orbContainer.classList.toggle('chat-open');
   });
 
-  closeBtn.addEventListener('click', () => {
-    chatPanel.classList.remove('active');
-    orbContainer.classList.remove('chat-open');
-  });
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      chatPanel.classList.remove('active');
+      orbContainer.classList.remove('chat-open');
+    });
+  }
 
   // -------------------------
   // Add Message
@@ -736,100 +754,104 @@ document.addEventListener("DOMContentLoaded", () => {
   // -------------------------
   chatInput.addEventListener('input', () => {
     setOrbState('listening');
-
     chatInput.style.height = 'auto';
     chatInput.style.height = Math.min(chatInput.scrollHeight, 120) + 'px';
   });
 
   // -------------------------
-// Send Message
-// -------------------------
+  // Send Message
+  // -------------------------
+  async function sendMessage() {
 
-async function sendMessage() {
+    const text = chatInput.value.trim();
+    if (!text) return;
 
-  const text = chatInput.value.trim();
-  if (!text) return;
+    addMessage(text, 'user');
 
-  addMessage(text, 'user');
+    chatInput.value = '';
+    chatInput.style.height = 'auto';
+    chatInput.placeholder = initialPlaceholder;
 
-  chatInput.value = '';
-  chatInput.style.height = 'auto';
-  chatInput.placeholder = initialPlaceholder;
-
-  setOrbState('thinking');
-  chatInput.disabled = true;
-  sendBtn.disabled = true;
-
-  sessionMemory.history.push({
-    role: "user",
-    content: text
-  });
-
-  // ✅ Add thinking bubble
-  const thinkingBubble = document.createElement('div');
-  thinkingBubble.classList.add('chat-msg', 'bot');
-  thinkingBubble.textContent = "…";
-  chatMessages.appendChild(thinkingBubble);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-
-  try {
-
-    const response = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        messages: [
-          { role: "system", content: SYSTEM_PROMPT },
-          ...sessionMemory.history
-        ]
-      })
-    });
-
-    if (!response.ok) {
-      throw new Error("LLM request failed");
-    }
-
-    const data = await response.json();
-    const reply = data.choices[0].message.content;
-
-    // Remove thinking bubble
-    thinkingBubble.remove();
+    setOrbState('thinking');
+    chatInput.disabled = true;
+    sendBtn.disabled = true;
 
     sessionMemory.history.push({
-      role: "assistant",
-      content: reply
+      role: "user",
+      content: text
     });
 
-    addMessage(reply, 'bot');
+    // Thinking bubble
+    const thinkingBubble = document.createElement('div');
+    thinkingBubble.classList.add('chat-msg', 'bot');
+    thinkingBubble.textContent = "…";
+    chatMessages.appendChild(thinkingBubble);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
 
-    setOrbState('speaking');
+    try {
 
-    setTimeout(() => {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: [
+            { role: "system", content: SYSTEM_PROMPT },
+            ...sessionMemory.history
+          ]
+        })
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("LLM Error:", errorText);
+        throw new Error("LLM request failed");
+      }
+
+      const data = await response.json();
+
+      if (!data.choices || !data.choices[0]?.message?.content) {
+        throw new Error("Invalid LLM response format");
+      }
+
+      const reply = data.choices[0].message.content;
+
+      thinkingBubble.remove();
+
+      sessionMemory.history.push({
+        role: "assistant",
+        content: reply
+      });
+
+      addMessage(reply, 'bot');
+
+      setOrbState('speaking');
+      setTimeout(() => setOrbState('idle'), 800);
+
+    } catch (err) {
+
+      console.error("Chat failure:", err);
+
+      thinkingBubble.remove();
+      addMessage("We’re experiencing high load. Please try again shortly.", 'bot');
       setOrbState('idle');
-    }, 800);
 
-  } catch (err) {
-
-    thinkingBubble.remove();
-
-    addMessage("We’re experiencing high load. Please try again shortly.", 'bot');
-    setOrbState('idle');
-
-  } finally {
-    chatInput.disabled = false;
-    sendBtn.disabled = false;
-    chatInput.focus();
+    } finally {
+      chatInput.disabled = false;
+      sendBtn.disabled = false;
+      chatInput.focus();
+    }
   }
-}
 
-// Attach listeners
-sendBtn.addEventListener('click', sendMessage);
+  // -------------------------
+  // Attach Listeners
+  // -------------------------
+  sendBtn.addEventListener('click', sendMessage);
 
-chatInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault();
-    sendMessage();
-  }
-});
+  chatInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
 
 });
