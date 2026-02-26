@@ -929,7 +929,7 @@ closeBtn.addEventListener('click', () => {
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }, 300);
 });
-/*====setRealViewportHeight + resize listener=========================*/
+/*====resize using visualViewport API=========================*/
 if (window.visualViewport) {
 
   const vv = window.visualViewport;
@@ -947,7 +947,30 @@ if (window.visualViewport) {
 
     chatMessages.scrollTop = chatMessages.scrollHeight;
   });
+    const chatInputArea = document.querySelector('.chat-input-area');
 
+if (window.visualViewport) {
+
+  const vv = window.visualViewport;
+
+  vv.addEventListener("resize", () => {
+
+    const keyboardHeight = window.innerHeight - vv.height;
+
+    if (keyboardHeight > 0) {
+      // Keyboard is open
+      chatInputArea.style.transform = `translateY(-${keyboardHeight}px)`;
+    } else {
+      // Keyboard closed
+      chatInputArea.style.transform = `translateY(0px)`;
+    }
+
+    // Keep messages pinned to bottom
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+  });
+
+}
 }
 
 });
