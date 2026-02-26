@@ -824,7 +824,7 @@ closeBtn.addEventListener('click', () => {
 function addMessage(text, sender) {
   const msg = document.createElement('div');
   msg.classList.add('chat-msg', sender);
-  msg.textContent = text;
+  msg.innerHTML = formatMessage(text);
 
   chatMessages.appendChild(msg);
 
@@ -1027,6 +1027,23 @@ chatMessages.addEventListener("scroll", () => {
   }
 });
 
+
+function formatMessage(text) {
+
+  // Escape HTML first (security)
+  const escaped = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+  // Convert **bold**
+  const formatted = escaped.replace(
+    /\*\*(.*?)\*\*/g,
+    "<strong>$1</strong>"
+  );
+
+  return formatted;
+}
 });
 
 if (window.innerWidth <= 768) {
