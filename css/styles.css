@@ -1927,12 +1927,8 @@ body::before{
   .role-card{
     width:100%;
   }
-  
-
-
-
 }
-
+/* ================================ ORB INTERACTIONS ================================*/
 .orb-container {
   position: fixed;
   top: 120px;
@@ -2350,12 +2346,13 @@ body::before{
 @media (max-width: 768px) {
 
   .chat-panel {
-    width: 100vw;
-    height: 90vh;
-    bottom: 0;
+    position: fixed;
+    left: 0;
     right: 0;
-    border-radius: 16px 16px 0 0;
-    transform-origin: bottom center;
+    bottom: 0;
+    height: 92dvh;
+    border-radius: 20px 20px 0 0;
+    padding: 20px 16px 16px 16px;
   }
 
   .chat-panel.active {
@@ -2381,12 +2378,16 @@ body::before{
   }
    .chat-input {
     font-size: 16px;
-    padding: 12px 0;
+    min-height: 48px;
+    padding: 14px 0;
   }
+  .chat-input-area {
+  padding-bottom: env(safe-area-inset-bottom);
+ }
 
   .send-btn {
-    font-size: 20px;
-    padding: 10px;
+    min-width: 48px;
+    min-height: 48px;
   }
 
   .chat-header {
