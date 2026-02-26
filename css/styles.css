@@ -2405,3 +2405,33 @@ body::before{
   }
 
 }
+
+/* ================================ CHAT MESSAGES FORMATTING ================================ */
+.chat-msg strong {
+  font-weight: 600;
+}
+
+.chat-msg em {
+  font-style: italic;
+}
+
+.chat-msg code {
+  background: rgba(255,255,255,0.08);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.chat-msg pre {
+  background: rgba(0,0,0,0.6);
+  padding: 12px;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin-top: 8px;
+}
+
+.chat-msg ul {
+  padding-left: 18px;
+  margin: 6px 0;
+}
