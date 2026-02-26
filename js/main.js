@@ -774,12 +774,15 @@ orbContainer.addEventListener('click', () => {
   }
 });
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      chatPanel.classList.remove('active');
-      orbContainer.classList.remove('chat-open');
-    });
+closeBtn.addEventListener('click', () => {
+  chatPanel.classList.remove('active');
+  orbContainer.classList.remove('chat-open');
+
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  if (isMobile) {
+    orbContainer.classList.remove('orb-mobile-active');
   }
+});
 
   // -------------------------
   // Add Message
@@ -883,6 +886,7 @@ orbContainer.addEventListener('click', () => {
       sendBtn.disabled = false;
       chatInput.focus();
     }
+    
   }
 
   // -------------------------
@@ -896,6 +900,18 @@ orbContainer.addEventListener('click', () => {
       sendMessage();
     }
   });
+
+  window.addEventListener("resize", () => {
+  if (chatPanel.classList.contains("active")) {
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+});
+
+ chatInput.addEventListener("focus", () => {
+  setTimeout(() => {
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }, 300);
+});
 
 });
 
