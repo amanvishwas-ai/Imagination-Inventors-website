@@ -936,7 +936,9 @@ if (window.visualViewport) {
 
   vv.addEventListener("resize", () => {
 
-    const keyboardHeight = window.innerHeight - vv.height;
+    const keyboardHeight = Math.max(0, vv.height < window.innerHeight 
+  ? window.innerHeight - vv.height 
+  : 0);
 
     if (keyboardHeight > 0) {
       chatInputArea.style.transform =
@@ -955,26 +957,21 @@ if (window.visualViewport) {
 
   vv.addEventListener("resize", () => {
 
-    const keyboardHeight = window.innerHeight - vv.height;
+    const keyboardHeight =
+      vv.height < window.innerHeight
+        ? window.innerHeight - vv.height
+        : 0;
 
-    if (keyboardHeight > 0) {
-      // Move input up
-      chatInputArea.style.transform = `translateY(-${keyboardHeight}px)`;
+    chatInputArea.style.transform =
+      keyboardHeight > 0
+        ? `translateY(-${keyboardHeight}px)`
+        : `translateY(0px)`;
 
-      // Push messages up
-      chatMessages.style.paddingBottom = keyboardHeight + 10 + "px";
+    chatMessages.style.paddingBottom =
+      keyboardHeight > 0
+        ? keyboardHeight + "px"
+        : "0px";
 
-    } else {
-      // Reset everything
-      chatInputArea.style.transform = `translateY(0px)`;
-      chatMessages.style.paddingBottom = "10px";
-
-     chatInput.style.height = "auto";
-     chatInput.style.height =
-       Math.min(chatInput.scrollHeight, 120) + "px";
-    }
-
-    // Always keep scroll pinned
     chatMessages.scrollTop = chatMessages.scrollHeight;
 
   });
