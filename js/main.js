@@ -772,6 +772,9 @@ orbContainer.addEventListener('click', () => {
   if (isMobile) {
     orbContainer.classList.toggle('orb-mobile-active');
   }
+  if (isMobile) {
+  updateViewportHeight();
+}
 });
 
 closeBtn.addEventListener('click', () => {
@@ -912,6 +915,8 @@ closeBtn.addEventListener('click', () => {
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }, 300);
 });
+/*====setRealViewportHeight + resize listener=========================*/
+
 function setRealViewportHeight() {
   const vh = window.innerHeight;
   document.documentElement.style.setProperty('--real-vh', `${vh}px`);
