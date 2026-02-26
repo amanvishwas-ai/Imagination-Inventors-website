@@ -912,6 +912,18 @@ closeBtn.addEventListener('click', () => {
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }, 300);
 });
+function setRealViewportHeight() {
+  const vh = window.innerHeight;
+  document.documentElement.style.setProperty('--real-vh', `${vh}px`);
+}
+
+setRealViewportHeight();
+window.addEventListener('resize', setRealViewportHeight);
+chatInput.addEventListener("focus", () => {
+  setTimeout(() => {
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }, 200);
+});
 
 });
 
