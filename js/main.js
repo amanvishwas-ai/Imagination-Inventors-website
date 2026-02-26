@@ -892,3 +892,7 @@ If you do not know something, say so clearly.
   });
 
 });
+
+if (window.innerWidth <= 768) {
+  orbContainer.classList.add("orb-mobile-active");
+}
