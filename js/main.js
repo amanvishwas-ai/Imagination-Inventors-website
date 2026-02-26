@@ -958,14 +958,23 @@ if (window.visualViewport) {
     const keyboardHeight = window.innerHeight - vv.height;
 
     if (keyboardHeight > 0) {
-      // Keyboard is open
+      // Move input up
       chatInputArea.style.transform = `translateY(-${keyboardHeight}px)`;
+
+      // Push messages up
+      chatMessages.style.paddingBottom = keyboardHeight + 10 + "px";
+
     } else {
-      // Keyboard closed
+      // Reset everything
       chatInputArea.style.transform = `translateY(0px)`;
+      chatMessages.style.paddingBottom = "10px";
+
+     chatInput.style.height = "auto";
+     chatInput.style.height =
+       Math.min(chatInput.scrollHeight, 120) + "px";
     }
 
-    // Keep messages pinned to bottom
+    // Always keep scroll pinned
     chatMessages.scrollTop = chatMessages.scrollHeight;
 
   });
