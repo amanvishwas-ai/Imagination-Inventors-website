@@ -761,12 +761,18 @@ If you do not know something, say so clearly.
   // -------------------------
   // Open / Close Chat
   // -------------------------
-  orbContainer.addEventListener('click', () => {
-    if (!orbContainer.classList.contains('docked')) return;
+orbContainer.addEventListener('click', () => {
+  if (!orbContainer.classList.contains('docked')) return;
 
-    chatPanel.classList.toggle('active');
-    orbContainer.classList.toggle('chat-open');
-  });
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+  chatPanel.classList.toggle('active');
+  orbContainer.classList.toggle('chat-open');
+
+  if (isMobile) {
+    orbContainer.classList.toggle('orb-mobile-active');
+  }
+});
 
   if (closeBtn) {
     closeBtn.addEventListener('click', () => {
