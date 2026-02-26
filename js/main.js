@@ -674,6 +674,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatPanel = document.querySelector('.chat-panel');
   const hero = document.querySelector('#hero');
   const chatInput = document.querySelector('.chat-input');
+  const chatInputArea = document.querySelector('.chat-input-area');
   const sendBtn = document.querySelector('.send-btn');
   const chatMessages = document.querySelector('.chat-messages');
   const closeBtn = document.querySelector('.chat-close');
@@ -929,19 +930,25 @@ closeBtn.addEventListener('click', () => {
   }, 300);
 });
 /*====setRealViewportHeight + resize listener=========================*/
+if (window.visualViewport) {
 
-function setRealViewportHeight() {
-  const vh = window.innerHeight;
-  document.documentElement.style.setProperty('--real-vh', `${vh}px`);
-}
+  const vv = window.visualViewport;
 
-setRealViewportHeight();
-window.addEventListener('resize', setRealViewportHeight);
-chatInput.addEventListener("focus", () => {
-  setTimeout(() => {
+  vv.addEventListener("resize", () => {
+
+    const keyboardHeight = window.innerHeight - vv.height;
+
+    if (keyboardHeight > 0) {
+      chatInputArea.style.transform =
+        `translateY(-${keyboardHeight}px)`;
+    } else {
+      chatInputArea.style.transform = `translateY(0px)`;
+    }
+
     chatMessages.scrollTop = chatMessages.scrollHeight;
-  }, 200);
-});
+  });
+
+}
 
 });
 
