@@ -1042,50 +1042,62 @@ chatMessages.addEventListener("scroll", () => {
 
 function formatMessage(text) {
 
-  // 1️⃣ Escape HTML first (security)
+  // 1️⃣ Escape HTML (security first)
   let escaped = text
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 
-  // 2️⃣ Code blocks ```code```
-  escaped = escaped.replace(
-    /```([\s\S]*?)```/g,
-    "<pre><code>$1</code></pre>"
-  );
+  // 2️⃣ Extract triple-backtick code blocks FIRST (protect them)
+  const codeBlocks = [];
+  escaped = escaped.replace(/```([\s\S]*?)```/g, function(match, code) {
+    const index = codeBlocks.length;
+    codeBlocks.push(code.trim());
+    return `@@CODEBLOCK_${index}@@`;
+  });
 
-  // 3️⃣ Inline code `code`
-  escaped = escaped.replace(
-    /`([^`]+)`/g,
-    "<code>$1</code>"
-  );
+  // 3️⃣ Inline code (protect from further formatting)
+  escaped = escaped.replace(/`([^`]+)`/g, "<code>$1</code>");
 
   // 4️⃣ Bold **text**
-  escaped = escaped.replace(
-    /\*\*(.*?)\*\*/g,
-    "<strong>$1</strong>"
-  );
+  escaped = escaped.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
 
-// 5️⃣ Italic using underscores only
-escaped = escaped.replace(
-  /_(.*?)_/g,
-  "<em>$1</em>"
-);
+  // 5️⃣ Italic _text_
+  escaped = escaped.replace(/_(.*?)_/g, "<em>$1</em>");
 
-  // 6️⃣ Bullet lists
-  escaped = escaped.replace(
-    /(?:^|\n)[\-•]\s+(.*)/g,
-    "<li>$1</li>"
-  );
+  // 6️⃣ Bullet lists (- or •)
+  const lines = escaped.split("\n");
+  let formattedLines = [];
+  let inList = false;
 
-  // Wrap consecutive <li> into <ul>
-  escaped = escaped.replace(
-    /(<li>.*<\/li>)/g,
-    "<ul>$1</ul>"
-  );
+  for (let line of lines) {
+    const match = line.match(/^\s*[\-•]\s+(.*)/);
 
-  // 7️⃣ Line breaks
-  escaped = escaped.replace(/\n/g, "<br>");
+    if (match) {
+      if (!inList) {
+        formattedLines.push("<ul>");
+        inList = true;
+      }
+      formattedLines.push(`<li>${match[1]}</li>`);
+    } else {
+      if (inList) {
+        formattedLines.push("</ul>");
+        inList = false;
+      }
+      formattedLines.push(line);
+    }
+  }
+
+  if (inList) {
+    formattedLines.push("</ul>");
+  }
+
+  escaped = formattedLines.join("<br>");
+
+  // 7️⃣ Restore code blocks safely
+  escaped = escaped.replace(/@@CODEBLOCK_(\d+)@@/g, function(match, index) {
+    return `<pre><code>${codeBlocks[index]}</code></pre>`;
+  });
 
   return escaped;
 }

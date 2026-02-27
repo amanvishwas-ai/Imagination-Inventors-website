@@ -1,9 +1,31 @@
 :root{
-  --bg:#04040c;
-  --accent:#00f7ff;
-  --accent2:#14e0c4;
-  --glass:rgba(255,255,255,0.06);
-  --text:#ffffff;
+  /* Core Background */
+  --bg:#060912;
+
+  /* Refined Accent (less neon, more authority) */
+  --accent:#00C8E6;
+
+  /* Secondary Accent – cooler and restrained */
+  --accent2:#12B8A6;
+
+  /* True Glass Layer */
+  --glass:rgba(255,255,255,0.04);
+
+  /* Primary Text */
+  --text:rgba(255,255,255,0.92);
+
+  /* Secondary Text */
+  --text-soft:rgba(255,255,255,0.65);
+
+  /* Depth Shadows */
+  --shadow-deep:0 30px 80px rgba(0,0,0,0.65);
+  --shadow-soft:0 10px 30px rgba(0,0,0,0.45);
+
+  /* Subtle Glow (only for interaction) */
+  --glow:0 0 18px rgba(0,200,230,0.25);
+
+  /* Border Tone */
+  --border:rgba(0,200,230,0.28);
 
   --nav-height:70px;
   --section-padding:120px 8%;
@@ -1968,19 +1990,19 @@ body::before{
 /* Styling */
 .orb-body {
   fill: #141414;
-  stroke: #00E5FF;
+  stroke: #00C8E6;
   stroke-width: 3;
 }
 
 .orb-ring {
   fill: none;
-  stroke: #00E5FF;
+  stroke: #00C8E6;
   stroke-width: 1;
   opacity: 0.3;
 }
 
 .orb-visor {
-  fill: #00E5FF;
+  fill: #00C8E6;
 }
 
 .orb-highlight {
@@ -2014,12 +2036,12 @@ body::before{
 }
 
 .visor-glow {
-  fill: #00E5FF;
+  fill: #00C8E6;
   opacity: 0.25;
 }
 
 .orb-pupil {
-  fill: #00E5FF;
+  fill: #00C8E6;
   transition: transform 0.08s linear;
 }
 
@@ -2036,12 +2058,12 @@ body::before{
 }
 
 .eye-pupil {
-  fill: #00E5FF;
+  fill: #00C8E6;
   transition: transform 0.08s linear, r 0.2s ease;
 }
 
 .scan-line {
-  fill: #00E5FF;
+  fill: #00C8E6;
   opacity: 0.4;
   animation: scanMove 4s linear infinite;
 }
@@ -2079,7 +2101,7 @@ body::before{
   }
 }
 /* ========================================= */
-/* CHAT PANEL – LUXURY AI CORE */
+/* CHAT PANEL – REFINED DARK TECH CORE */
 /* ========================================= */
 
 .chat-panel {
@@ -2093,23 +2115,21 @@ body::before{
   display: flex;
   flex-direction: column;
 
-  border-radius: 20px;
+  border-radius: 18px;
 
-  /* Multi-layer depth background */
   background:
-    linear-gradient(145deg,
-      rgba(20,25,35,0.92),
-      rgba(12,16,24,0.95)
+    linear-gradient(
+      160deg,
+      rgba(15,18,28,0.95),
+      rgba(10,13,20,0.98)
     );
 
-  border: 1px solid rgba(0,229,255,0.35);
+  border: 1px solid var(--border);
 
-  backdrop-filter: blur(24px);
+  backdrop-filter: blur(22px);
 
   box-shadow:
-    0 30px 80px rgba(0,0,0,0.55),
-    0 0 40px rgba(0,229,255,0.12),
-    inset 0 0 60px rgba(0,229,255,0.03);
+    var(--shadow-deep);
 
   opacity: 0;
   transform: scale(0.2);
@@ -2132,28 +2152,20 @@ body::before{
 }
 
 /* ========================================= */
-/* SUBTLE EDGE LIGHT ACCENT */
+/* SUBTLE EDGE LIGHT (NOT GLOWY) */
 /* ========================================= */
 
 .chat-panel::before {
   content: "";
   position: absolute;
-  inset: -1px;
+  inset: 0;
   border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    rgba(0,229,255,0.4),
-    transparent 40%,
-    transparent 60%,
-    rgba(0,229,255,0.25)
-  );
-  opacity: 0.25;
-  z-index: -1;
-  filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.04);
+  pointer-events: none;
 }
 
 /* ========================================= */
-/* HEADER – CONTROLLED INTELLIGENCE */
+/* HEADER – QUIET AUTHORITY */
 /* ========================================= */
 
 .chat-header {
@@ -2161,32 +2173,28 @@ body::before{
   justify-content: space-between;
   align-items: center;
 
-  padding: 16px 20px;
+  padding: 14px 18px;
 
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
 
-  color: #00F2FF;
+  color: var(--accent);
 
-  border-bottom: 1px solid rgba(0,229,255,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 
-  background: linear-gradient(
-    to right,
-    rgba(0,229,255,0.05),
-    transparent
-  );
+  background: transparent;
 }
 
 /* ========================================= */
-/* CLOSE BUTTON – PREMIUM MINIMAL */
+/* CLOSE BUTTON – CONTROLLED */
 /* ========================================= */
 
 .chat-close {
   background: none;
   border: none;
-  color: rgba(0,229,255,0.8);
-  font-size: 18px;
+  color: var(--text-soft);
+  font-size: 17px;
   cursor: pointer;
   padding: 0;
   line-height: 1;
@@ -2194,8 +2202,8 @@ body::before{
 }
 
 .chat-close:hover {
-  color: #00F2FF;
-  transform: scale(1.15);
+  color: var(--accent);
+  transform: scale(1.08);
 }
 
 /* ========================================= */
@@ -2204,35 +2212,26 @@ body::before{
 
 .chat-messages {
   flex: 1;
-  padding: 20px;
+  padding: 18px;
   overflow-y: auto;
   font-size: 14px;
+  color: var(--text);
 
-  background:
-    radial-gradient(circle at top,
-      rgba(0,229,255,0.05),
-      transparent 50%
-    );
+  background: transparent;
 }
 
 /* ========================================= */
-/* INPUT AREA – GLASS CORE */
+/* INPUT AREA – MINIMAL GLASS */
 /* ========================================= */
 
 .chat-input-area {
   display: flex;
-  align-items: flex-end;
-  padding: 14px 18px;
-  gap: 10px;
+  align-items: center;
+  padding: 10px 14px;
+  gap: 8px;
 
-  border-top: 1px solid rgba(0,229,255,0.12);
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(0,229,255,0.04),
-      transparent
-    );
+  border-top: 1px solid rgba(255,255,255,0.05);
+  background: transparent;
 }
 
 .chat-input {
@@ -2240,109 +2239,86 @@ body::before{
   resize: none;
   overflow-y: auto;
 
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(0,229,255,0.25);
-  border-radius: 12px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
 
-  color: #ffffff;
+  color: var(--text);
   font-size: 14px;
   outline: none;
   line-height: 1.5;
   max-height: 120px;
 
-  padding: 10px 14px;
+  padding: 8px 12px;
 
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
 }
 
 .chat-input:focus {
-  border-color: #00F2FF;
-  box-shadow:
-    0 0 18px rgba(0,229,255,0.25),
-    inset 0 0 10px rgba(0,229,255,0.08);
+  border-color: var(--accent);
+  box-shadow: var(--glow);
 }
 
 .chat-input::placeholder {
-  color: rgba(255,255,255,0.4);
+  color: var(--text-soft);
 }
 
 /* ========================================= */
-/* SEND BUTTON – CONTROL NODE */
+/* SEND BUTTON – DARK TECH CONTROL */
 /* ========================================= */
 
 .send-btn {
   position: relative;
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(
-    145deg,
-    rgba(0,229,255,0.18),
-    rgba(0,229,255,0.08)
-  );
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
 
-  border: 1px solid rgba(0,229,255,0.35);
-
-  color: #00F2FF;
-  font-size: 16px;
+  color: var(--accent);
+  font-size: 15px;
   cursor: pointer;
 
-  transition: all 0.3s cubic-bezier(.22,1,.36,1);
-  backdrop-filter: blur(10px);
-
-  box-shadow:
-    0 6px 18px rgba(0,229,255,0.18),
-    inset 0 0 10px rgba(0,229,255,0.08);
+  transition: all 0.25s cubic-bezier(.22,1,.36,1);
 }
 
 .send-btn:hover {
-  transform: scale(1.08);
-  box-shadow:
-    0 8px 24px rgba(0,229,255,0.35),
-    0 0 18px rgba(0,229,255,0.3);
+  background: rgba(255,255,255,0.06);
+  border-color: var(--accent);
+  box-shadow: var(--glow);
+  transform: translateY(-1px);
 }
 
 .send-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.94);
 }
 
 /* ========================================= */
-/* ORB REACTION WHEN CHAT OPEN */
+/* ORB REACTION – LESS NEON */
 /* ========================================= */
 
 .orb-container.chat-open {
-  transform: translateY(calc(100vh - 260px)) scale(0.85);
+  transform: translateY(calc(100vh - 260px)) scale(0.9);
   transition: transform 0.5s cubic-bezier(.22,1,.36,1);
 }
 
 .orb-container.chat-open .orb-body {
-  stroke: #00F2FF;
-  filter:
-    drop-shadow(0 0 16px rgba(0,229,255,0.7))
-    drop-shadow(0 0 30px rgba(0,229,255,0.4));
+  stroke: var(--accent);
+  filter: drop-shadow(0 0 10px rgba(0,200,230,0.35));
 }
 
 /* ========================================= */
-/* AMBIENT CORNER LIGHT */
+/* REMOVE GAMER GLOW DOT */
 /* ========================================= */
 
 .chat-panel::after {
-  content: "";
-  position: absolute;
-  bottom: -8px;
-  right: -8px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: rgba(0,229,255,0.2);
-  filter: blur(10px);
-  opacity: 0.6;
+  display: none;
 }
 .orb-container.chat-open .orb-body {
   animation: glowPulse 2s ease-in-out infinite;
@@ -2468,7 +2444,7 @@ body::before{
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  background: linear-gradient(120deg, #00E5FF, transparent);
+  background: linear-gradient(120deg, #00C8E6, transparent);
   opacity: 0.15;
   z-index: -1;
   filter: blur(12px);
