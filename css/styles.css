@@ -2405,6 +2405,10 @@ body::before{
   position: relative;
   animation: messageFade 0.4s ease;
 }
+/* Bot messages expand nearly full width */
+.chat-msg.bot {
+  max-width: 96%;
+}
 
 @keyframes messageFade {
   from {
