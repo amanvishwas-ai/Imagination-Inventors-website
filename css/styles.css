@@ -3106,3 +3106,29 @@ body.project-page {
   display: flex;
   align-items: center;
 }
+/*OPTIMIZATION FOR MOBILES*/
+@media (max-width:768px) {
+
+  body {
+    background-attachment: scroll;
+  }
+
+  .orb-wrapper,
+  .scan-line,
+  .eye-pupil {
+    animation: none !important;
+  }
+
+  .hero::before {
+    width: 500px;
+    height: 500px;
+  }
+
+  nav,
+  .card,
+  .chat-panel,
+  .console-panel {
+    backdrop-filter: blur(4px);
+  }
+
+}
