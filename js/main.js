@@ -1113,3 +1113,44 @@ if (chatMessages.children.length === 0) {
 if (window.innerWidth <= 768) {
   orbContainer.classList.add("orb-mobile-active");
 }
+
+
+//Auto hide navbar logic
+
+let lastScroll = 0;
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll > lastScroll && currentScroll > 150) {
+    // Scrolling down
+    navbar.classList.add("nav-hidden");
+  } else {
+    // Scrolling up
+    navbar.classList.remove("nav-hidden");
+  }
+
+  lastScroll = currentScroll;
+});
+
+
+//Fullscreen logic
+const fsButton = document.querySelector(".fullscreen-toggle");
+
+fsButton.addEventListener("click", () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+});
+//Autohide the navbar too when in fullscreen (even if user scrolls up, to keep the immersive experience)
+document.addEventListener("fullscreenchange", () => {
+  const navbar = document.querySelector(".navbar");
+  if (document.fullscreenElement) {
+    navbar.classList.add("nav-hidden");
+  } else {
+    navbar.classList.remove("nav-hidden");
+  }
+});

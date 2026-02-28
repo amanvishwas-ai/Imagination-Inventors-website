@@ -2638,3 +2638,471 @@ body::before{
   padding-left: 18px;
   margin: 6px 0;
 }
+
+
+/* ========================================= */
+/* PROJECT PAGE BACKGROUND */
+/* ========================================= */
+
+body.project-page {
+  background: #0f141b;
+  min-height: 100vh;
+  margin: 0;
+  
+}
+
+.project-wrapper {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 120px;   /* Push below navbar properly */
+  padding: 60px 0 140px 0;
+}
+
+/* ========================================= */
+/* LAB NOTEBOOK – PREMIUM IMMERSIVE JOURNAL */
+/* ========================================= */
+
+.lab-notebook {
+  width: 100%;
+  max-width: 1600px;
+
+  padding: 140px 160px;
+
+  background-color: #ffffff;
+
+  /* subtle ruling + paper grain */
+  background-image:
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px),
+    repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0.006),
+      rgba(0,0,0,0.006) 2px,
+      transparent 2px,
+      transparent 4px
+    );
+
+  background-size:
+    100% 40px,
+    auto;
+
+  position: relative;
+
+  border-top: 1px solid rgba(0,0,0,0.05);
+
+  box-shadow:
+    0 -40px 60px rgba(0,0,0,0.25),
+    0 90px 180px rgba(0,0,0,0.35),
+    0 0 0 1px rgba(0,0,0,0.035);
+
+  font-family: "EB Garamond", serif;
+  font-size: 24px;
+  line-height: 1.95;
+  color: #1c1c1c;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Controlled reading column */
+.lab-notebook > * {
+  max-width: 1050px;
+}
+
+/* red margin line */
+.lab-notebook::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 140px;
+  bottom: 0;
+  width: 2px;
+  background: rgba(200,40,40,0.3);
+}
+
+/* folded corner */
+.lab-notebook::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 170px;
+  height: 170px;
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.06),
+    transparent 70%
+  );
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  pointer-events: none;
+}
+
+/* ========================================= */
+/* HEADINGS */
+/* ========================================= */
+
+.lab-notebook h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 68px;
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  margin-bottom: 80px;
+  color: #000;
+  position: relative;
+}
+
+.lab-notebook h1::after {
+  content: "";
+  display: block;
+  width: 160px;
+  height: 2px;
+  background: rgba(0,0,0,0.22);
+  margin-top: 24px;
+}
+
+.lab-notebook h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  margin-top: 150px;
+  margin-bottom: 40px;
+  font-weight: 600;
+  position: relative;
+  padding-left: 28px;
+}
+
+.lab-notebook h2::before {
+  content: "§";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 22px;
+  opacity: 0.3;
+}
+
+.lab-notebook h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  margin-top: 80px;
+  margin-bottom: 28px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #444;
+}
+
+/* ========================================= */
+/* PARAGRAPHS */
+/* ========================================= */
+
+.lab-notebook p {
+  margin-bottom: 52px;
+}
+
+.lab-notebook p:first-of-type {
+  font-size: 28px;
+}
+
+.lab-notebook p + p {
+  text-indent: 36px;
+}
+
+/* ========================================= */
+/* REFLECTION BLOCK */
+/* ========================================= */
+
+.lab-note {
+  margin: 100px 0;
+  padding: 44px 56px;
+  background: #f2f2f2;
+  border-left: 6px solid #000;
+  font-style: italic;
+  font-size: 28px;
+}
+
+/* ========================================= */
+/* SYSTEM BLOCK */
+/* ========================================= */
+
+.system-block {
+  margin: 100px 0;
+  padding: 48px;
+  background: #f7f7f7;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 6px;
+}
+
+/* ========================================= */
+/* LISTS */
+/* ========================================= */
+
+.lab-notebook ul {
+  margin: 45px 0 60px 55px;
+}
+
+.lab-notebook li {
+  margin-bottom: 22px;
+}
+
+/* ========================================= */
+/* CODE */
+/* ========================================= */
+
+.lab-notebook code {
+  background: #ececec;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9em;
+}
+
+.lab-notebook pre {
+  background: #f2f2f2;
+  padding: 36px;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid rgba(0,0,0,0.14);
+  margin: 70px 0;
+}
+
+/* ========================================= */
+/* STICKY NOTES */
+/* ========================================= */
+
+.sticky-note {
+  font-family: "Caveat", cursive;
+  font-size: 30px;
+  line-height: 1.6;
+
+  width: 320px;
+  padding: 30px 32px;
+  margin: 80px 0;
+
+  border-radius: 2px;
+
+  box-shadow:
+    0 25px 50px rgba(0,0,0,0.28);
+
+  transform: rotate(-2deg);
+
+  position: relative;
+}
+
+.sticky-note::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(0,0,0,0.05),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.sticky-yellow { background: #fff4a6; }
+.sticky-blue { background: #d6ebff; }
+.sticky-pink { background: #ffdbe9; }
+
+/* ========================================= */
+/* TAPE EFFECT */
+/* ========================================= */
+
+.taped {
+  position: relative;
+  display: inline-block;
+  padding: 16px;
+}
+
+.taped::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+
+  width: 130px;
+  height: 28px;
+
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(4px);
+
+  box-shadow: 0 12px 22px rgba(0,0,0,0.28);
+}
+
+
+/* ========================================= */
+/* AUTO HIDE NAVBAR */
+/* ========================================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  transition: transform 0.4s cubic-bezier(.22,1,.36,1);
+  will-change: transform;
+
+  z-index: 100000;
+}
+
+/* Hidden state */
+.navbar.nav-hidden {
+  transform: translateY(-100%);
+}
+
+/* ========================================= */
+/* FULLSCREEN TOGGLE */
+/* ========================================= */
+
+.fullscreen-toggle {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+
+  background: rgba(20,25,35,0.6);
+  backdrop-filter: blur(12px);
+
+  color: #fff;
+  font-size: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: all 0.3s cubic-bezier(.22,1,.36,1);
+
+  z-index: 200000;
+}
+
+.fullscreen-toggle:hover {
+  transform: scale(1.08);
+  background: rgba(20,25,35,0.8);
+}
+
+/* Navbar css for project pages */
+/* ========================================= */
+/* EDITORIAL NAVBAR — PROJECT PAGES */
+/* ========================================= */
+
+.project-page .navbar {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+/* Logo refinement */
+.project-page .navbar .logo {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #000;
+}
+
+/* Nav links */
+.project-page .navbar a {
+  color: #222;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: color 0.2s ease;
+}
+
+/* Subtle hover */
+.project-page .navbar a:hover {
+  color: #000;
+}
+
+/* Remove any neon or glow effects */
+.project-page .navbar * {
+  text-shadow: none !important;
+  box-shadow: none;
+}
+.project-page .navbar {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+/* ========================================= */
+/* EDITORIAL NAVBAR BUTTONS — PROJECT PAGE */
+/* ========================================= */
+
+.project-page .navbar a {
+  font-family: "EB Garamond", serif;
+  font-size: 17px;
+  font-weight: 500;
+
+  color: #222;
+
+  margin: 0 22px;
+  padding: 4px 0;
+
+  position: relative;
+  display: inline-block;   /* 🔥 IMPORTANT FIX */
+
+  transition: color 0.25s ease;
+}
+
+.project-page .navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+
+  height: 1px;
+  background: rgba(0,0,0,0.85);
+
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1);
+}
+
+.project-page .navbar a:hover::after {
+  transform: scaleX(1);
+}
+
+.project-page .navbar a:hover {
+  color: #000;
+}
+
+.project-page .navbar a:hover::after {
+  width: 100%;
+}
+.project-page .navbar .nav-login {
+  font-family: "EB Garamond", serif;
+  font-size: 16px;
+
+  padding: 8px 22px;
+
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 30px;
+
+  background: transparent;
+  color: #000;
+
+  transition: all 0.25s ease;
+}
+
+.project-page .navbar .nav-login:hover {
+  background: #000;
+  color: #fff;
+}
+
+/*css for projects page LOGO*/
+.project-page .project-logo svg {
+  height: 60px;
+}
+
+.project-page .project-logo {
+  display: flex;
+  align-items: center;
+}
