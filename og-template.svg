@@ -1,0 +1,75 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630"
+xmlns="http://www.w3.org/2000/svg">
+
+<!-- DEFINITIONS -->
+<defs>
+
+<!-- Subtle Glow -->
+<radialGradient id="glow" cx="50%" cy="40%" r="70%">
+<stop offset="0%" stop-color="#00e5ff" stop-opacity="0.15"/>
+<stop offset="100%" stop-color="#04040c" stop-opacity="0"/>
+</radialGradient>
+
+<!-- Tech Grid -->
+<pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+<path d="M 60 0 L 0 0 0 60"
+fill="none"
+stroke="#00e5ff"
+stroke-width="0.5"
+opacity="0.08"/>
+</pattern>
+
+</defs>
+
+<!-- Background -->
+<rect width="1200" height="630" fill="#04040c"/>
+
+<!-- Glow -->
+<rect width="1200" height="630" fill="url(#glow)"/>
+
+<!-- Grid -->
+<rect width="1200" height="630" fill="url(#grid)"/>
+
+<!-- Main Title -->
+<text x="120"
+y="240"
+fill="#ffffff"
+font-size="72"
+font-family="Poppins, Arial, sans-serif"
+font-weight="700">
+Imagination Inventors
+</text>
+
+<!-- Tagline Line 1 -->
+<text x="120"
+y="360"
+fill="#00e5ff"
+font-size="42"
+font-family="Poppins, Arial, sans-serif"
+font-weight="600">
+Engineering Intelligence
+</text>
+
+<!-- Tagline Line 2 -->
+<text x="120"
+y="420"
+fill="#00e5ff"
+font-size="42"
+font-family="Poppins, Arial, sans-serif"
+font-weight="600">
+for the Physical World
+</text>
+
+<!-- Accent Divider -->
+<rect x="120" y="455" width="320" height="3" fill="#00e5ff"/>
+
+<!-- Footer -->
+<text x="120"
+y="510"
+fill="#aaaaaa"
+font-size="24"
+font-family="JetBrains Mono, monospace">
+Independent Physical AI Lab · India
+</text>
+
+</svg>
