@@ -112,17 +112,17 @@
 
 
  <!-- Navbar -->
-<nav>
+<nav class ="navbar">
   <div class="logo">
     <img src="logo.png" alt="Imagination Inventors Logo">
   </div>
 
   <div class="nav-links" id="navLinks">
   <a href="index.html">Home</a>
-  <a href="projects/projects.html">Projects</a>
-  <a href="about.html">About</a>
+  <a href="scrollToId('#Projects')" onclick="scrollToId('#Projects')">Projects</a>
+  <a href="founder.html">Founder</a>
   <a href="contact.html">Contact</a>
-  <a href="login.html" class="nav-login">Login</a>
+  <a href="apply.html" class="nav-login">Join Us</a>
 </div>
 
 
@@ -211,8 +211,9 @@
 </main>
 
   <!-- FOOTER (copy same footer) -->
+<footer class="site-footer">
 
-  <footer class="site-footer"> <div class="footer-top">
+  <div class="footer-top">
 
     <div class="footer-identity">
       <h3>Imagination Inventors</h3>
@@ -225,19 +226,18 @@
 
     <div class="footer-nav">
       <h4>Quick Links</h4>
-      <a href="/">Home</a>
-      <a href="/projects">Projects</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
       <a href="apply.html">Submit Interest Form</a>
-      <a href="apply.html">Meet the Founder</a>
+      <a href="founder.html">Meet the Founder</a>
     </div>
 
     <div class="footer-external">
       <h4>Join Us On</h4>
       <a href="https://github.com/Imagination-Inventors" target="_blank">GitHub</a>
       <a href="https://www.linkedin.com/in/aman-vishwas-20787b397/" target="_blank">LinkedIn</a>
-      <a href="https://amvish.netlify.app" target="_blank">Instagram</a>
+      <a href="https://www.instagram.com/aman_vishwas.invents/" target="_blank">Instagram</a>
     </div>
 
   </div>
@@ -258,7 +258,40 @@
     <span class="meta-block">
       <label>Founder</label>
       <value>
-        <a href="https://amanvishwas.netlify.app/" target="_blank">
+        <a href="" target="_blank">
+          Aman Vishwas
+        </a>
+      </value>
+    </span>
+
+<span class="meta-block">
+  <label>Build</label>
+  <value>
+    Research v1.0 · <span id="buildYear"></span>
+  </value>
+</span>
+
+  </div>
+</div>
+</footer>
+
+<div class="footer-bottom">
+  <div class="footer-meta">
+
+    <span class="meta-block">
+      <label>Status</label>
+      <value>Active</value>
+    </span>
+
+    <span class="meta-block">
+      <label>Type</label>
+      <value>Independent Initiative</value>
+    </span>
+
+    <span class="meta-block">
+      <label>Founder</label>
+      <value>
+        <a href="founder.html" target="_blank">
           Aman Vishwas
         </a>
       </value>

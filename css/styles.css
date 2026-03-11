@@ -1489,6 +1489,9 @@ body::before{
   text-transform:uppercase;
 }
 
+.console-progress{
+  margin-top:120px;   /* move section downward */
+}
 /* dot */
 .phase-dot{
   position:absolute;
@@ -1524,7 +1527,7 @@ body::before{
 .console-panel{
   background:rgba(10,18,26,0.88);
   border:1px solid rgba(255,255,255,0.08);
-  padding:70px 60px;
+  padding:110px 60px;
   min-height:520px;
   backdrop-filter:blur(6px);
 }
@@ -1539,6 +1542,15 @@ body::before{
 .console-content{
   min-height:280px;
   transition:0.4s ease;
+}
+.console-panel{
+  background:rgba(10,18,26,0.88);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:70px 60px;
+  min-height:520px;
+  backdrop-filter:blur(6px);
+
+  margin-top:60px;   /* move section downward */
 }
 
 /* ===== INPUTS – ENGINEERING STYLE ===== */
