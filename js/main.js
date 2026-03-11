@@ -1247,3 +1247,40 @@ founderVideo.pause();
 observer.observe(founderVideo);
 
 }
+
+/* ================== CODES FOR GOOGLE ANALYTICS ================== */
+/*for Join the Lab Button*/
+const joinBtn = document.getElementById("joinLabBtn");
+
+if (joinBtn) {
+  joinBtn.addEventListener("click", function () {
+    gtag("event", "join_lab_click", {
+      event_category: "engagement",
+      event_label: "homepage_join_button"
+    });
+  });
+}
+
+/*for GitHub button in founder.html*/
+const githubBtn = document.getElementById("githubBtn");
+
+if (githubBtn) {
+  githubBtn.addEventListener("click", function () {
+    gtag("event", "github_profile_click", {
+      event_category: "founder",
+      event_label: "github_button"
+    });
+  });
+}
+
+/*for contact form submission in founder.html*/
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function () {
+    gtag("event", "contact_form_submit", {
+      event_category: "contact",
+      event_label: "contact_page"
+    });
+  });
+}
