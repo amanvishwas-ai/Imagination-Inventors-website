@@ -30,6 +30,64 @@ const revealObserver = new IntersectionObserver(entries => {
 revealElements.forEach(el => {
   revealObserver.observe(el);
 });
+
+/* ================================founder.html specific reveal================ */
+/* story image animation with replay */
+
+const storyImages = document.querySelectorAll(".reveal-image");
+
+const imageObserver = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("active");
+
+}else{
+
+entry.target.classList.remove("active");
+
+}
+
+});
+
+},{
+threshold:0.35
+});
+
+storyImages.forEach(img=>{
+imageObserver.observe(img);
+});
+
+/* Parallax effect for founder images */
+/* subtle parallax drift */
+
+const parallaxImages = document.querySelectorAll(".parallax-image img");
+
+window.addEventListener("scroll", () => {
+
+parallaxImages.forEach(img => {
+
+const rect = img.getBoundingClientRect();
+
+const windowHeight = window.innerHeight;
+
+if(rect.top < windowHeight && rect.bottom > 0){
+
+const speed = 0.12;
+
+const offset = (windowHeight - rect.top) * speed;
+
+img.style.transform =
+`translateY(${offset}px) scale(1)`;
+
+}
+
+});
+
+});
+
 /* ================================
    2️⃣ Timeline Reactive Animation
 ================================ */
@@ -1154,3 +1212,38 @@ document.addEventListener("fullscreenchange", () => {
     navbar.classList.remove("nav-hidden");
   }
 });
+
+
+/* ================= FAREWELL VIDEO PLAY ================= */
+
+const founderVideo = document.querySelector(".founder-video");
+
+if(founderVideo){
+
+const observer = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+founderVideo.currentTime = 0;
+
+const playPromise = founderVideo.play();
+
+if(playPromise !== undefined){
+playPromise.catch(()=>{});
+}
+
+}else{
+
+founderVideo.pause();
+
+}
+
+});
+
+},{threshold:0.6});
+
+observer.observe(founderVideo);
+
+}
