@@ -1188,12 +1188,40 @@ if (chatMessages.children.length === 0) {
 }
 });
 
-if (window.innerWidth <= 768) {
-  orbContainer.classList.add("orb-mobile-active");
-}
+// -------------------------
+// Orb Tooltip Logic
+// -------------------------
 
+document.addEventListener("DOMContentLoaded", () => {
 
+  const orbContainer = document.getElementById("orbContainer");
+  const orbTooltip = document.getElementById("orbTooltip");
 
+  if(!orbContainer || !orbTooltip) return;
+
+  /* don't show on phones */
+
+  if(window.innerWidth <= 768) return;
+
+  /* show tooltip */
+
+  setTimeout(() => {
+    orbTooltip.classList.add("show");
+  }, 2500);
+
+  /* hide when orb clicked */
+
+  orbContainer.addEventListener("click", () => {
+    orbTooltip.classList.remove("show");
+  });
+
+  /* auto hide */
+
+  setTimeout(() => {
+    orbTooltip.classList.remove("show");
+  }, 9000);
+
+});
 
 //Fullscreen logic
 const fsButton = document.querySelector(".fullscreen-toggle");

@@ -332,6 +332,26 @@ pointer-events:auto;
 /* PREMIUM DROPDOWN MENU */
 /* ========================================= */
 
+/* ========================================= */
+/* MOBILE NAVBAR EDGE ALIGNMENT */
+/* ========================================= */
+
+@media (max-width:768px){
+
+.navbar{
+padding:0 16px;
+}
+
+.brand{
+gap:8px;
+}
+
+.hamburger{
+margin-right:-2px;
+}
+
+}
+
 @media (max-width:1100px){
 
 .nav-links{
@@ -2163,6 +2183,76 @@ body::before{
     width:100%;
   }
 }
+
+/* ========================================= */
+/* ORB TOOLTIP */
+/* ========================================= */
+
+.orb-tooltip{
+
+position:absolute;
+
+right:70px;
+bottom:18px;
+
+padding:8px 14px;
+
+font-size:13px;
+font-family:"Space Grotesk", sans-serif;
+
+color:#d6dbe8;
+
+background:rgba(12,16,24,.95);
+
+border:1px solid rgba(255,255,255,.06);
+
+border-radius:8px;
+
+backdrop-filter:blur(10px);
+
+white-space:nowrap;
+
+opacity:0;
+transform:translateY(6px);
+
+pointer-events:none;
+
+transition:
+opacity .35s ease,
+transform .35s ease;
+
+}
+
+/* visible state */
+
+.orb-tooltip.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* little arrow */
+
+.orb-tooltip::after{
+
+content:"";
+
+position:absolute;
+
+right:-6px;
+bottom:10px;
+
+width:10px;
+height:10px;
+
+background:rgba(12,16,24,.95);
+
+border-right:1px solid rgba(255,255,255,.06);
+border-bottom:1px solid rgba(255,255,255,.06);
+
+transform:rotate(-45deg);
+
+}
+
 /* ================================ ORB INTERACTIONS ================================*/
 .orb-container {
   position: fixed;
