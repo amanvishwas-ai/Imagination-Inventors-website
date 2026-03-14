@@ -339,7 +339,7 @@ pointer-events:auto;
 @media (max-width:768px){
 
 .navbar{
-padding:0 16px;
+padding:0 14px;
 }
 
 .brand{
@@ -352,43 +352,42 @@ margin-right:-2px;
 
 }
 
-@media (max-width:1100px){
+/* ========================================= */
+/* PREMIUM MOBILE MENU */
+/* ========================================= */
+
+@media (max-width:768px){
 
 .nav-links{
 
 position:absolute;
 
 top:78px;
-right:30px;
+right:16px;
 
 display:flex;
 flex-direction:column;
 
-align-items:flex-start;
+width:220px;
 
-gap:26px;
+padding:22px 24px;
 
-padding:26px 32px;
+gap:20px;
 
-background:
-linear-gradient(
-180deg,
-rgba(12,16,24,.96),
-rgba(8,12,18,.98)
-);
+background:rgba(10,15,22,.98);
 
 border:1px solid rgba(255,255,255,.06);
 
 border-radius:14px;
 
-backdrop-filter:blur(18px);
+backdrop-filter:blur(16px);
 
 box-shadow:
-0 20px 60px rgba(0,0,0,.55);
+0 18px 50px rgba(0,0,0,.55);
 
 transform:translateY(-10px);
-opacity:0;
 
+opacity:0;
 pointer-events:none;
 
 transition:
@@ -397,28 +396,7 @@ transform .25s ease;
 
 }
 
-.nav-links::before{
-
-content:"";
-
-position:absolute;
-
-top:-8px;
-right:18px;
-
-width:14px;
-height:14px;
-
-background:rgba(12,16,24,.96);
-
-border-left:1px solid rgba(255,255,255,.06);
-border-top:1px solid rgba(255,255,255,.06);
-
-transform:rotate(45deg);
-
-}
-
-/* OPEN STATE */
+/* menu open */
 
 .nav-links.active{
 
@@ -429,14 +407,29 @@ pointer-events:auto;
 
 }
 
-/* NAV LINKS */
+/* ========================================= */
+/* MOBILE MENU LINKS */
+/* ========================================= */
+
+/* ========================================= */
+/* MENU TYPOGRAPHY */
+/* ========================================= */
 
 .nav-links a{
 
+font-family:"Space Grotesk", sans-serif;
+
 font-size:17px;
+
 font-weight:500;
 
-color:#d6dbe8;
+letter-spacing:0.2px;
+
+color:#cfd6e6;
+
+padding:4px 0;
+
+line-height:1.35;
 
 transition:
 color .2s ease,
@@ -447,33 +440,112 @@ transform .2s ease;
 .nav-links a:hover{
 
 color:#ffffff;
+
 transform:translateX(4px);
 
 }
 
-/* JOIN BUTTON */
+/* ========================================= */
+/* MOBILE JOIN BUTTON */
+/* ========================================= */
 
 .nav-login{
 
-margin-top:6px;
+margin-top:8px;
 
-padding:8px 18px;
+font-family:"Space Grotesk", sans-serif;
+
+font-size:15px;
+
+font-weight:500;
+
+letter-spacing:0.2px;
+
+padding:9px 20px;
 
 border-radius:22px;
 
 border:1px solid rgba(0,212,255,.6);
 
-}
-
-/* HAMBURGER */
-
-.hamburger{
-display:flex;
-}
-
+color:#ffffff;
 
 }
 
+.nav-links::before{
+
+content:"";
+
+position:absolute;
+
+top:-6px;
+right:20px;
+
+width:12px;
+height:12px;
+
+background:rgba(10,15,22,.98);
+
+border-left:1px solid rgba(255,255,255,.06);
+border-top:1px solid rgba(255,255,255,.06);
+
+transform:rotate(45deg);
+
+}
+}
+/* ========================================= */
+/* MENU STAGGER ANIMATION */
+/* ========================================= */
+
+.nav-links.active a{
+animation:menuReveal .35s ease forwards;
+}
+
+.nav-links.active a:nth-child(1){ animation-delay:.05s; }
+.nav-links.active a:nth-child(2){ animation-delay:.10s; }
+.nav-links.active a:nth-child(3){ animation-delay:.15s; }
+.nav-links.active a:nth-child(4){ animation-delay:.20s; }
+.nav-links.active a:nth-child(5){ animation-delay:.25s; }
+
+@keyframes menuReveal{
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+.nav-links a:hover{
+color:#ffffff;
+transform:translateX(4px);
+}
+
+.nav-links a.active{
+
+color:#ffffff;
+
+position:relative;
+
+}
+
+.nav-links a.active::before{
+
+content:"";
+
+position:absolute;
+
+left:-12px;
+top:50%;
+
+width:5px;
+height:5px;
+
+background:#00d4ff;
+
+border-radius:50%;
+
+transform:translateY(-50%);
+
+}
 
 /* ================= HERO (Elite Version) ================= */
 

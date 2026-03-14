@@ -298,6 +298,57 @@ text-decoration:none;
 opacity:.85;
 }
 
+/* ========================================= */
+/* PROJECT NAVBAR MOBILE BREADCRUMB FIX */
+/* ========================================= */
+
+@media (max-width:768px){
+
+/* reduce navbar padding */
+.project-navbar{
+padding:0 14px;
+}
+
+/* hide long brand text */
+.brand-text{
+display:none;
+}
+
+/* keep logo icon visible */
+.brand-logo{
+width:22px;
+height:22px;
+}
+
+/* breadcrumb layout */
+.breadcrumb{
+display:flex;
+align-items:center;
+gap:6px;
+font-size:14px;
+white-space:nowrap;
+}
+
+/* hide first slash after logo */
+.breadcrumb .slash:first-of-type{
+display:none;
+}
+
+
+
+/* improve spacing */
+.crumb{
+font-size:14px;
+}
+
+/* github icon */
+.github-link svg{
+width:20px;
+height:20px;
+}
+
+}
+
 /* ===================================== */
 /* PROJECT PAGE BASE */
 /* ===================================== */
