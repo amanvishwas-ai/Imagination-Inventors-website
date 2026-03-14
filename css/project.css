@@ -306,7 +306,8 @@ opacity:.85;
 
 /* reduce navbar padding */
 .project-navbar{
-padding:0 14px;
+padding-left:8px;
+padding-right:8px;
 }
 
 /* hide long brand text */
@@ -316,8 +317,8 @@ display:none;
 
 /* keep logo icon visible */
 .brand-logo{
-width:22px;
-height:22px;
+width:24px;
+height:24px;
 }
 
 /* breadcrumb layout */
@@ -325,8 +326,9 @@ height:22px;
 display:flex;
 align-items:center;
 gap:6px;
-font-size:14px;
+font-size:16px;
 white-space:nowrap;
+margin-left:-2px;
 }
 
 /* hide first slash after logo */
@@ -345,6 +347,7 @@ font-size:14px;
 .github-link svg{
 width:20px;
 height:20px;
+margin-right:-2px;
 }
 
 }
