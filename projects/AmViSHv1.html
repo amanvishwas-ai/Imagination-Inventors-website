@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 
-<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/project.css">
 
 <!-- Basic Meta -->
 <meta charset="UTF-8">
@@ -113,156 +113,221 @@
 
 </head>
 
+
+
 <body class="project-page">
 
+<nav class="project-navbar">
+
+<div class="nav-inner">
+
+<!-- LEFT SIDE -->
+
+<div class="breadcrumb">
+
+<a href="../index.html" class="brand">
+
+<img src="../favicon.svg" alt="Imagination Inventors Logo" class="brand-logo">
+
+<span class="brand-text">
+Imagination Inventors
+</span>
+
+</a>
+
+<span class="slash">/</span>
+
+<a href="../projects/projects.html" class="crumb">
+Projects
+</a>
+
+<span class="slash">/</span>
+
+<span class="crumb current-project">
+AmViSH v1
+</span>
 
 
-<!-- Navbar -->
-<nav class="navbar">
-  <div class="project-logo">
-<svg viewBox="0 0 900 120" xmlns="http://www.w3.org/2000/svg">
-  <text x="0" y="70"
-        font-family="Playfair Display, serif"
-        font-size="48"
-        font-weight="600"
-        letter-spacing="2"
-        fill="#000">
-    Imagination Inventors
-  </text>
 
-  <text x="0" y="105"
-        font-family="EB Garamond, serif"
-        font-size="20"
-        letter-spacing="6"
-        fill="#444">
-    PROJECTS
-  </text>
+</div>
+
+
+<!-- RIGHT SIDE -->
+
+<a href="https://github.com/Imagination-Inventors"
+class="github-link"
+target="_blank">
+
+<svg viewBox="0 0 24 24">
+<path fill="currentColor"
+d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.17 9.05 7.56 10.52
+.55.1.74-.24.74-.52
+0-.26-.01-.95-.02-1.86
+-3.08.67-3.73-1.48-3.73-1.48
+-.5-1.28-1.23-1.63-1.23-1.63
+-1.01-.69.08-.68.08-.68
+1.12.08 1.71 1.15 1.71 1.15
+.99 1.7 2.6 1.21 3.23.92
+.1-.72.39-1.21.7-1.49
+-2.46-.28-5.05-1.23-5.05-5.47
+0-1.21.43-2.19 1.14-2.96
+-.11-.28-.49-1.41.11-2.94
+0 0 .93-.3 3.04 1.13
+.88-.24 1.82-.36 2.75-.36
+.93 0 1.87.12 2.75.36
+2.11-1.43 3.04-1.13 3.04-1.13
+.6 1.53.22 2.66.11 2.94
+.71.77 1.14 1.75 1.14 2.96
+0 4.25-2.59 5.19-5.06 5.46
+.4.34.75 1.01.75 2.03
+0 1.47-.01 2.66-.01 3.02
+0 .29.19.63.75.52
+4.38-1.47 7.54-5.62 7.54-10.52
+C23.1 5.33 18.27.5 12 .5z"/>
 </svg>
+
+</a>
+
 </div>
 
-  <div class="nav-links" id="navLinks">
-  <a href="../index.html">Home</a>
-  <a href="../projects/projects.html">Projects</a>
-  <a href="../about.html">About</a>
-  <a href="../contact.html">Contact</a>
-  <a href="../login.html" class="nav-login">Login</a>
-</div>
-
-
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
 </nav>
-<button class="fullscreen-toggle" aria-label="Toggle Fullscreen">
-  ⛶
-</button>
 
-<div class="menu-overlay" id="menuOverlay"></div>
+<div class="journal-progress"></div>
+
+<div class="project-wrapper">
+
+<!-- TABLE OF CONTENTS -->
+
+<aside class="toc">
+
+<h4>Contents</h4>
+
+<a href="#intro">Introduction</a>
+<a href="#concept">Concept</a>
+<a href="#active">Active Mode</a>
+<a href="#alert">Alert Mode</a>
+<a href="#hardware">Hardware</a>
+<a href="#future">Future Work</a>
+
+</aside>
+
+
+<!-- ARTICLE -->
 
 <div class="lab-notebook">
 
-  <h1>AmViSH v1 — Embodied AI Prototype</h1>
+<div class="reading-guide"></div>
 
-  <p>
-    Can a robot feel alive?
-  </p>
-   <div class="sticky-note sticky-yellow">
-  I realized that life in machines is about behavior, not complexity.
+<section class="section" id="intro">
+
+<h1>AmViSH v1 — Embodied AI Prototype</h1>
+
+<p>
+Can a robot feel alive? This project explores how simple behavioral
+logic combined with physical sensors can create the illusion of life
+in a robotic system.
+</p>
+
+<div class="lab-note">
+Life in machines does not emerge from complexity.  
+It emerges from behavior.
 </div>
 
-<div class="taped">
-  <img src="heart-module.jpg" width="300">
+</section>
+
+
+<section class="section" id="concept">
+
+<h2>The Core Concept</h2>
+
+<p>
+A magnetic heart module interacts with a Hall sensor connected to an
+Arduino controller. The physical trigger determines the behavioral
+state of the robot.
+</p>
+
+</section>
+
+
+<section class="section" id="active">
+
+<h2>Active Mode</h2>
+
+<p>
+When the magnet is inserted the robot enters ACTIVE state.
+LED animations and periodic tones indicate operational status.
+</p>
+
+<ul>
+
+<li>PWM LED breathing pattern</li>
+<li>Heart rotation lighting</li>
+<li>2-second system beep</li>
+
+</ul>
+
+</section>
+
+
+<section class="section" id="alert">
+
+<h2>Alert Mode</h2>
+
+<p>
+Removing the heart module transitions the system into ALERT mode.
+Visual signals communicate system distress.
+</p>
+
+</section>
+
+
+<section class="section" id="hardware">
+
+<h2>Hardware Architecture</h2>
+
+<ul>
+
+<li>Arduino Nano</li>
+<li>Digital Hall sensor</li>
+<li>LED driver circuits</li>
+<li>Audio speaker module</li>
+
+</ul>
+
+</section>
+
+
+<section class="section" id="future">
+
+<h2>Future Improvements</h2>
+
+<p>
+Future iterations will integrate custom embedded hardware and
+dedicated AI processing modules.
+</p>
+
+</section>
+
 </div>
-  <p>
-    AmViSH v1 began as a Class 8 holiday assignment to build a robot model.
-    Instead of building a static structure, the goal evolved into creating a
-    physical embodiment of a conversational AI assistant.
-  </p>
 
-  <div class="lab-note">
-    This was the first time I moved from “model making” to “system thinking.”
-  </div>
 
-  <div class="lab-separator"></div>
+<!-- NOTES -->
 
-  <h2>The Core Concept</h2>
+<aside class="notes">
 
-  <p>
-    The robot’s heart acted as a life-state trigger. A magnet embedded in the
-    heart module interacted with a digital Hall effect sensor connected to
-    an Arduino.
-  </p>
+<div class="note">
+Hall sensors are extremely reliable for physical trigger detection.
+</div>
 
-  <div class="system-block">
-    <h3>State Flow</h3>
-    <p>
-      Magnet Inserted → Hall Sensor HIGH → Active State → LEDs + Beep + Voice  
-      Magnet Removed → Hall Sensor LOW → Alert State → Flash + Tone Alert
-    </p>
-  </div>
+<div class="note">
+Finite state machines are ideal for robotic behavior systems.
+</div>
 
-  <div class="lab-separator"></div>
+<div class="note">
+Future versions will use custom PCB hardware.
+</div>
 
-  <h2>Active Mode (Heart Inserted)</h2>
-
-  <ul>
-    <li>Eye LEDs performed PWM fade-blink cycles.</li>
-    <li>Heart illumination revolved in a circular pattern.</li>
-    <li>A 10ms system beep occurred every 2 seconds.</li>
-    <li>Tablet-based AI voice interaction was active.</li>
-  </ul>
-
-  <p>
-    All behaviors were controlled using non-blocking timing logic based on
-    the Arduino <code>millis()</code> function.
-  </p>
-
-  <div class="lab-separator"></div>
-
-  <h2>Alert Mode (Heart Removed)</h2>
-
-  <ul>
-    <li>Eye LEDs faded closed.</li>
-    <li>All heart LEDs flashed simultaneously.</li>
-    <li>The buzzer emitted an alert tone using <code>tone()</code>.</li>
-  </ul>
-
-  <div class="system-block">
-    <h3>State Architecture</h3>
-    <p>
-      The system functioned as a two-state finite state machine,
-      transitioning between ACTIVE and ALERT states depending on
-      the digital sensor input.
-    </p>
-  </div>
-
-  <div class="lab-separator"></div>
-
-  <h2>What I Learned</h2>
-
-  <p>
-    Physical embodiment changes how AI is perceived. Even simple timed LED
-    behaviors can create the illusion of life when structured through
-    clear state logic.
-  </p>
-
-  <div class="lab-note">
-    Complexity does not create life in machines. Behavior does.
-  </div>
-
-  <div class="lab-separator"></div>
-
-  <h2>Technical Summary</h2>
-
-  <ul>
-    <li>Arduino-based state control</li>
-    <li>Digital Hall sensor (HIGH/LOW trigger)</li>
-    <li>PWM LED fading</li>
-    <li>Non-blocking timing using <code>millis()</code></li>
-    <li>Dual-speaker architecture (voice + system tone)</li>
-  </ul>
+</aside>
 
 </div>
 
@@ -282,19 +347,20 @@
 
     <div class="footer-nav">
       <h4>Quick Links</h4>
-      <a href="/">Home</a>
-      <a href="/projects">Projects</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
       <a href="apply.html">Submit Interest Form</a>
-      <a href="apply.html">Meet the Founder</a>
+      <a href="founder.html">Meet the Founder</a>
+      <a href="privacy.html">Privacy Policy</a>
     </div>
+
 
     <div class="footer-external">
       <h4>Join Us On</h4>
       <a href="https://github.com/Imagination-Inventors" target="_blank">GitHub</a>
       <a href="https://www.linkedin.com/in/aman-vishwas-20787b397/" target="_blank">LinkedIn</a>
-      <a href="https://instalink" target="_blank">Instagram</a>
+      <a href="https://www.instagram.com/aman_vishwas.invents/" target="_blank">Instagram</a>
     </div>
 
   </div>
@@ -315,7 +381,7 @@
     <span class="meta-block">
       <label>Founder</label>
       <value>
-        <a href="https://amanvishwas.netlify.app/" target="_blank">
+        <a href="founder.html" target="_blank">
           Aman Vishwas
         </a>
       </value>
@@ -332,7 +398,125 @@
 </div>
 </footer>
 
-<script src="../js/main.js" defer></script>
+
+<script>
+
+/* =============================== */
+/* SCROLL PROGRESS BAR */
+/* =============================== */
+
+const progressBar = document.querySelector(".journal-progress");
+
+window.addEventListener("scroll", () => {
+
+const scroll = window.scrollY;
+const height = document.body.scrollHeight - window.innerHeight;
+
+const progress = (scroll / height) * 100;
+
+progressBar.style.width = progress + "%";
+
+});
+
+
+/* =============================== */
+/* TOC SECTION HIGHLIGHT */
+/* =============================== */
+
+const sections = document.querySelectorAll(".section");
+const tocLinks = document.querySelectorAll(".toc a");
+
+window.addEventListener("scroll", () => {
+
+let current = "";
+
+sections.forEach(section => {
+
+const sectionTop = section.offsetTop;
+
+if (window.scrollY >= sectionTop - 200) {
+current = section.getAttribute("id");
+}
+
+});
+
+tocLinks.forEach(link => {
+
+link.classList.remove("active");
+
+if (link.getAttribute("href") === "#" + current) {
+link.classList.add("active");
+}
+
+});
+
+});
+
+
+/* =============================== */
+/* FULLSCREEN IMAGE VIEWER */
+/* =============================== */
+
+const viewer = document.createElement("div");
+viewer.className = "viewer";
+
+const viewerImg = document.createElement("img");
+
+viewer.appendChild(viewerImg);
+document.body.appendChild(viewer);
+
+
+/* open image */
+
+document.querySelectorAll(".gallery img, .diagram img").forEach(img => {
+
+img.addEventListener("click", () => {
+
+viewer.style.display = "flex";
+viewerImg.src = img.src;
+
+});
+
+});
+
+
+/* close viewer */
+
+viewer.addEventListener("click", () => {
+
+viewer.style.display = "none";
+
+});
+
+
+</script>
+
+<!-- <script>
+
+let lastScroll = 0;
+
+const navbar = document.querySelector(".project-navbar");
+
+window.addEventListener("scroll", () => {
+
+const current = window.pageYOffset;
+
+if (current > lastScroll && current > 100) {
+
+navbar.classList.add("nav-hidden");
+
+} else {
+
+navbar.classList.remove("nav-hidden");
+
+}
+
+lastScroll = current;
+
+});
+
+</script> -->
+
 
 
 </body>

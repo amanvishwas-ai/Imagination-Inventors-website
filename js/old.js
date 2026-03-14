@@ -7,8 +7,6 @@ if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
 
-
-
 /* ================================
    1️⃣ General Scroll Reveal (Reactive)
 ================================ */
@@ -117,28 +115,22 @@ timelineItems.forEach(item => {
    3️⃣ Mobile Navigation
 ================================ */
 
-document.addEventListener("DOMContentLoaded", () => {
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+const overlay = document.getElementById('menuOverlay');
 
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("navLinks");
-const overlay = document.getElementById("menuOverlay");
-
-if(hamburger && navLinks){
-
-hamburger.addEventListener("click", () => {
-
-navLinks.classList.toggle("active");
-hamburger.classList.toggle("active");
-
-if(overlay){
-overlay.classList.toggle("active");
-}
-
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  hamburger.classList.toggle('active');
+  overlay.classList.toggle('active');
 });
 
-}
-
+overlay.addEventListener('click', () => {
+  navLinks.classList.remove('active');
+  hamburger.classList.remove('active');
+  overlay.classList.remove('active');
 });
+
 
 /* ================================10% Innovation ================================ */
 document.addEventListener("mousemove", e => {
@@ -751,9 +743,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  if (window.innerWidth <= 768) {
-  orbContainer.classList.add('docked');
-}
   // -------------------------
   // System Prompt (SAFETY)
   // -------------------------
@@ -855,30 +844,21 @@ Accuracy and Safety Rules:
     orbContainer.classList.add(`state-${state}`);
   }
 
-// -------------------------
-// Scroll Dock Logic
-// -------------------------
+  // -------------------------
+  // Scroll Dock Logic
+  // -------------------------
+  window.addEventListener('scroll', () => {
+    const heroBottom = hero.getBoundingClientRect().bottom;
 
-window.addEventListener('scroll', () => {
+    if (heroBottom <= 0) {
+      orbContainer.classList.add('docked');
+    } else {
+      orbContainer.classList.remove('docked');
+      chatPanel.classList.remove('active');
+      orbContainer.classList.remove('chat-open');
+    }
+  });
 
-  /* Always dock on phones */
-  if (window.innerWidth <= 768) {
-    orbContainer.classList.add('docked');
-    return;
-  }
-
-  /* Desktop behaviour */
-  const heroBottom = hero.getBoundingClientRect().bottom;
-
-  if (heroBottom <= 0) {
-    orbContainer.classList.add('docked');
-  } else {
-    orbContainer.classList.remove('docked');
-    chatPanel.classList.remove('active');
-    orbContainer.classList.remove('chat-open');
-  }
-
-});
   // -------------------------
   // Open / Close Chat
   // -------------------------
@@ -1193,6 +1173,24 @@ if (window.innerWidth <= 768) {
 }
 
 
+//Auto hide navbar logic
+
+let lastScroll = 0;
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll > lastScroll && currentScroll > 150) {
+    // Scrolling down
+    navbar.classList.add("nav-hidden");
+  } else {
+    // Scrolling up
+    navbar.classList.remove("nav-hidden");
+  }
+
+  lastScroll = currentScroll;
+});
 
 
 //Fullscreen logic
@@ -1286,69 +1284,3 @@ if (contactForm) {
     });
   });
 }
-
-
-
-/* ================== FOR PROJECT PAGES ================== */
-const sections = document.querySelectorAll(".journal-section");
-const notes = document.querySelectorAll(".sticky-note");
-
-const observer = new IntersectionObserver(
-
-(entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-const id = entry.target.id;
-
-notes.forEach(note=>{
-
-note.classList.remove("active");
-
-if(note.dataset.note === id){
-
-note.classList.add("active");
-
-}
-
-});
-
-}
-
-});
-
-},
-
-{
-threshold:0.5
-}
-
-);
-
-sections.forEach(section=>{
-observer.observe(section);
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-
-const navItems = document.querySelectorAll(".nav-links a");
-
-let currentPage = window.location.pathname.split("/").pop();
-
-if(currentPage === ""){
-currentPage = "index.html";
-}
-
-navItems.forEach(link => {
-
-const linkPage = link.getAttribute("href");
-
-if(linkPage === currentPage){
-link.classList.add("active");
-}
-
-});
-
-});
