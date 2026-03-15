@@ -1,0 +1,430 @@
+/* ========================================= */
+/* GLOBAL NAVBAR */
+/* ========================================= */
+/* ========================================= */
+/* NAVBAR */
+/* ========================================= */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:68px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:0 40px;
+
+background:rgba(10,15,22,.75);
+backdrop-filter:blur(14px);
+
+border-bottom:1px solid rgba(255,255,255,.05);
+
+z-index:1000;
+}
+
+/* ========================================= */
+/* BRAND (LOGO + TEXT) */
+/* ========================================= */
+
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+
+text-decoration:none;
+color:inherit;
+}
+
+.brand-logo{
+width:26px;
+height:26px;
+flex-shrink:0;
+}
+
+.brand-text{
+font-family:"Playfair Display", serif;
+font-size:20px;
+font-weight:600;
+color:#ffffff;
+}
+
+.brand:hover{
+opacity:.85;
+}
+
+/* ========================================= */
+/* NAV LINKS */
+/* ========================================= */
+
+.nav-links{
+display:flex;
+align-items:center;
+
+gap:34px;
+
+font-family:"Space Grotesk",sans-serif;
+
+flex-shrink:0;
+}
+
+.nav-links a{
+text-decoration:none;
+
+color:#cfd6e6;
+
+font-size:15px;
+font-weight:500;
+
+transition:color .2s ease;
+}
+
+.nav-links a:hover{
+color:#ffffff;
+}
+
+/* ========================================= */
+/* ACTIVE LINK */
+/* ========================================= */
+
+.nav-links a.active{
+color:#ffffff;
+position:relative;
+}
+
+.nav-links a.active::after{
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:100%;
+height:2px;
+
+background:#00d4ff;
+border-radius:2px;
+}
+
+/* ========================================= */
+/* JOIN BUTTON */
+/* ========================================= */
+
+.nav-login{
+padding:8px 20px;
+
+border-radius:24px;
+
+border:1px solid rgba(0,212,255,.6);
+
+color:#ffffff;
+}
+
+.nav-login:hover{
+background:rgba(0,212,255,.12);
+}
+
+/* ========================================= */
+/* HAMBURGER BUTTON */
+/* ========================================= */
+
+.hamburger{
+display:none;
+
+flex-direction:column;
+justify-content:center;
+
+gap:5px;
+
+width:28px;
+height:22px;
+
+cursor:pointer;
+}
+
+.hamburger span{
+display:block;
+
+width:100%;
+height:2px;
+
+background:#ffffff;
+
+transition:
+transform .35s cubic-bezier(.22,1,.36,1),
+opacity .25s ease;
+}
+
+/* hover feedback */
+
+.hamburger:hover span{
+background:#ffffff;
+}
+
+/* ========================================= */
+/* HAMBURGER ANIMATION */
+/* ========================================= */
+
+.hamburger.active span:nth-child(1){
+transform:translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2){
+opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+transform:translateY(-7px) rotate(-45deg);
+}
+
+/* ========================================= */
+/* MENU OVERLAY */
+/* ========================================= */
+
+.menu-overlay{
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100vh;
+
+background:rgba(0,0,0,.5);
+
+opacity:0;
+pointer-events:none;
+
+transition:opacity .3s ease;
+
+z-index:900;
+}
+
+.menu-overlay.active{
+opacity:1;
+pointer-events:auto;
+}
+
+/* ========================================= */
+/* PREMIUM DROPDOWN MENU */
+/* ========================================= */
+
+/* ========================================= */
+/* MOBILE NAVBAR EDGE ALIGNMENT */
+/* ========================================= */
+
+@media (max-width:768px){
+
+.navbar{
+padding:0 14px;
+}
+
+.brand{
+gap:8px;
+}
+
+.hamburger{
+margin-right:-2px;
+}
+
+}
+
+/* ========================================= */
+/* PREMIUM MOBILE MENU */
+/* ========================================= */
+
+@media (max-width:768px){
+
+.nav-links{
+
+position:absolute;
+
+top:78px;
+right:16px;
+
+display:flex;
+flex-direction:column;
+
+width:220px;
+
+padding:22px 24px;
+
+gap:20px;
+
+background:rgba(10,15,22,.98);
+
+border:1px solid rgba(255,255,255,.06);
+
+border-radius:14px;
+
+backdrop-filter:blur(16px);
+
+box-shadow:
+0 18px 50px rgba(0,0,0,.55);
+
+transform:translateY(-10px);
+
+opacity:0;
+pointer-events:none;
+
+transition:
+opacity .25s ease,
+transform .25s ease;
+
+}
+
+/* menu open */
+
+.nav-links.active{
+
+opacity:1;
+transform:translateY(0);
+
+pointer-events:auto;
+
+}
+
+/* ========================================= */
+/* MOBILE MENU LINKS */
+/* ========================================= */
+
+/* ========================================= */
+/* MENU TYPOGRAPHY */
+/* ========================================= */
+
+.nav-links a{
+
+font-family:"Space Grotesk", sans-serif;
+
+font-size:17px;
+
+font-weight:500;
+
+letter-spacing:0.2px;
+
+color:#cfd6e6;
+
+padding:4px 0;
+
+line-height:1.35;
+
+transition:
+color .2s ease,
+transform .2s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#ffffff;
+
+transform:translateX(4px);
+
+}
+
+/* ========================================= */
+/* MOBILE JOIN BUTTON */
+/* ========================================= */
+
+.nav-login{
+
+margin-top:8px;
+
+font-family:"Space Grotesk", sans-serif;
+
+font-size:15px;
+
+font-weight:500;
+
+letter-spacing:0.2px;
+
+padding:9px 20px;
+
+border-radius:22px;
+
+border:1px solid rgba(0,212,255,.6);
+
+color:#ffffff;
+
+}
+
+.nav-links::before{
+
+content:"";
+
+position:absolute;
+
+top:-6px;
+right:20px;
+
+width:12px;
+height:12px;
+
+background:rgba(10,15,22,.98);
+
+border-left:1px solid rgba(255,255,255,.06);
+border-top:1px solid rgba(255,255,255,.06);
+
+transform:rotate(45deg);
+
+}
+}
+/* ========================================= */
+/* MENU STAGGER ANIMATION */
+/* ========================================= */
+
+.nav-links.active a{
+animation:menuReveal .35s ease forwards;
+}
+
+.nav-links.active a:nth-child(1){ animation-delay:.05s; }
+.nav-links.active a:nth-child(2){ animation-delay:.10s; }
+.nav-links.active a:nth-child(3){ animation-delay:.15s; }
+.nav-links.active a:nth-child(4){ animation-delay:.20s; }
+.nav-links.active a:nth-child(5){ animation-delay:.25s; }
+
+@keyframes menuReveal{
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+.nav-links a:hover{
+color:#ffffff;
+transform:translateX(4px);
+}
+
+.nav-links a.active{
+
+color:#ffffff;
+
+position:relative;
+
+}
+
+.nav-links a.active::before{
+
+content:"";
+
+position:absolute;
+
+left:-12px;
+top:50%;
+
+width:5px;
+height:5px;
+
+background:#00d4ff;
+
+border-radius:50%;
+
+transform:translateY(-50%);
+
+}
