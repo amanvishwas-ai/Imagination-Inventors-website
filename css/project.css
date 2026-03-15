@@ -1,5 +1,5 @@
 :root{
-  --accent:#00C8E6;
+  --accent:#6aa9ff;
   --accent2:#12B8A6;
 }
 
@@ -13,6 +13,10 @@
 body{
   background-color:var(--bg);
   color:var(--text);
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 /* ========================================= */
@@ -380,34 +384,42 @@ margin-right:-2px;
 /* ===================================== */
 
 body.project-page{
-margin:0;
+
 background:#0b0f16;
 color:#d6dbe4;
+
 font-family:"EB Garamond",serif;
-line-height:1.8;
+
+font-size:20px;
+line-height:1.85;
+
+font-feature-settings:"liga","kern";
+font-variant-ligatures:common-ligatures;
+
+text-rendering:optimizeLegibility;
+
 }
 
 /* ===================================== */
 /* PAGE LAYOUT */
 /* ===================================== */
-
 .project-wrapper{
 
-max-width:1500px;
-
+max-width:1400px;
 margin:auto;
 
 display:grid;
 
 grid-template-columns:
 
-220px   /* toc */
-minmax(0,920px) /* article */
-240px;  /* notes */
+200px      /* TOC */
+minmax(0,720px)  /* Article */
+260px;     /* Research Notes */
 
-gap:60px;
+gap:64px;
 
-padding:120px 40px;
+padding:120px 32px;
+
 }
 
 /* ===================================== */
@@ -437,35 +449,35 @@ margin-bottom:16px;
 }
 
 .toc a{
-
 display:block;
-
 text-decoration:none;
-
 color:#9aa3b7;
-
 margin-bottom:12px;
-
 font-size:14px;
-
+padding-left:10px;
+border-left:2px solid transparent;
 transition:.2s;
-
 }
 
 .toc a:hover{
-
 color:#ffffff;
-
+border-left:2px solid rgba(106,169,255,0.4);
 }
 
 .toc a.active{
-
 color:#6aa9ff;
-
 font-weight:600;
-
+border-left:2px solid #6aa9ff;
 }
 
+
+a{
+transition:color .2s ease;
+}
+
+a:hover{
+color:#6aa9ff;
+}
 /* ===================================== */
 /* ARTICLE COLUMN */
 /* ===================================== */
@@ -473,6 +485,10 @@ font-weight:600;
 .lab-notebook{
 position: relative;
 width:100%;
+position:relative;
+max-width:720px;
+margin:auto;
+
 
 }
 
@@ -509,7 +525,7 @@ pointer-events:none;
 
 .section{
 
-margin-bottom:120px;
+margin-bottom:100px;
 
 max-width:920px;
 
@@ -520,68 +536,53 @@ max-width:920px;
 /* ===================================== */
 
 .section h1{
-
 font-family:"Playfair Display",serif;
-
-font-size:56px;
-
-margin-bottom:30px;
-
+font-size:52px;
+line-height:1.15;
+margin-bottom:28px;
+letter-spacing:-0.5px;
 color:#ffffff;
-
 }
 
 .section h2{
-
 font-family:"Playfair Display",serif;
-
-font-size:34px;
-
-margin-top:30px;
-
+font-size:32px;
+line-height:1.25;
+margin-top:60px;
 margin-bottom:16px;
-
 color:#ffffff;
-scroll-margin-top: 120px;
-
-
+scroll-margin-top:120px;
 }
-
 /* ===================================== */
 /* TEXT */
 /* ===================================== */
 
 .section p{
-
 font-size:20px;
-
-margin-bottom:24px;
-
+line-height:1.9;
+color:#cfd6e6;
+margin-bottom:26px;
 }
 
 .section p:first-of-type{
-
 font-size:24px;
-
-color:#f2f4fa;
-
+color:#f5f7ff;
+line-height:1.7;
 }
-
 /* ===================================== */
 /* LISTS */
 /* ===================================== */
 
 .section ul{
-
-margin:20px 0 30px 28px;
-
+margin:24px 0 36px 26px;
 }
 
 .section li{
-
 margin-bottom:10px;
-
+color:#cfd6e6;
 }
+
+
 
 /* ===================================== */
 /* SYSTEM BLOCK */
@@ -606,51 +607,13 @@ margin:40px 0;
 /* ===================================== */
 
 .lab-note{
-
 border-left:3px solid #6aa9ff;
-
-padding-left:18px;
-
+padding:14px 18px;
+background:rgba(106,169,255,0.05);
 font-style:italic;
-
-color:#cfd6e6;
-
+color:#d9e2ff;
 margin:40px 0;
-
-}
-
-/* ===================================== */
-/* NOTES COLUMN */
-/* ===================================== */
-
-.notes{
-
-position:sticky;
-
-top:120px;
-
-height:max-content;
-
-font-family:"Space Grotesk",sans-serif;
-
-}
-
-.note{
-
-font-size:14px;
-
-background:#131925;
-
-border:1px solid rgba(255,255,255,.06);
-
-padding:16px;
-
-border-radius:8px;
-
-margin-bottom:16px;
-
-color:#b7c0d4;
-
+border-radius:4px;
 }
 
 /* ===================================== */
@@ -709,11 +672,7 @@ display:none;
 
 }
 
-.notes{
 
-position:relative;
-
-}
 
 .section{
 
@@ -723,15 +682,109 @@ max-width:100%;
 
 .section h1{
 
-font-size:42px;
+font-size:36px;
 
 }
 
 .section h2{
 
-font-size:28px;
+font-size:26px;
+
+}
+.section p{
+font-size:18px;
+}
+
+.section p:first-of-type{
+font-size:20px;
+}
+
+
+}
+/* ===================================== */
+/* NOTES COLUMN */
+/* ===================================== */
+
+
+.research-notes{
+
+position:sticky;
+top:120px;
+
+height:max-content;
+
+display:flex;
+flex-direction:column;
+gap:24px;
+
+font-family:"Space Grotesk",sans-serif;
+
+}
+
+.note-card{
+
+background:#111722;
+
+border:1px solid rgba(255,255,255,.05);
+
+padding:18px;
+
+border-radius:8px;
+
+}
+
+.note-card h5{
+
+font-size:12px;
+letter-spacing:1px;
+
+text-transform:uppercase;
+
+color:#7f8797;
+
+margin-bottom:10px;
+
+}
+
+.note-card p{
+
+font-size:14px;
+line-height:1.6;
+
+color:#cfd6e6;
+
+}
+
+.note-card ul{
+
+margin-left:16px;
+
+}
+
+.note-card li{
+
+font-size:14px;
+margin-bottom:6px;
+
+}
+@media(max-width:1100px){
+
+.project-wrapper{
+
+grid-template-columns:1fr;
+
+}
+
+.toc{
+display:none;
+}
+
+.research-notes{
+
+position:static;
+
+margin-top:60px;
 
 }
 
 }
-
