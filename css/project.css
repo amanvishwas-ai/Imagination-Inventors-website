@@ -1,3 +1,20 @@
+:root{
+  --accent:#00C8E6;
+  --accent2:#12B8A6;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background-color:var(--bg);
+  color:var(--text);
+}
+
 /* ========================================= */
 /* PROJECT NAVBAR */
 /* ========================================= */
@@ -331,10 +348,6 @@ white-space:nowrap;
 margin-left:-2px;
 }
 
-/* hide first slash after logo */
-.breadcrumb .slash:first-of-type{
-display:none;
-}
 
 
 
@@ -349,6 +362,16 @@ width:20px;
 height:20px;
 margin-right:-2px;
 }
+
+  /* Footer refinement */
+  .site-footer{
+    padding:80px 20px 50px;
+  }
+
+  .footer-meta{
+    font-size:0.75rem;
+    letter-spacing:0.6px;
+  }
 
 }
 
