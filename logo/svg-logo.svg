@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+  <defs>
+    <!-- Gradient ring -->
+    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6a5cff"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <circle cx="256" cy="256" r="240" fill="#0b0b0b"/>
+
+  <!-- Gradient border -->
+  <circle cx="256" cy="256" r="236"
+          fill="none"
+          stroke="url(#ringGradient)"
+          stroke-width="8"/>
+
+  <!-- Main I -->
+  <rect x="240" y="150" width="32" height="220" rx="12" fill="white"/>
+
+  <!-- Top bar -->
+  <rect x="210" y="150" width="92" height="18" rx="9" fill="white"/>
+
+  <!-- Bottom bar -->
+  <rect x="210" y="352" width="92" height="18" rx="9" fill="white"/>
+
+  <!-- Superscript 2 -->
+  <text
+    x="300"
+    y="185"
+    font-family="Inter, Arial, sans-serif"
+    font-size="110"
+    font-weight="800"
+    fill="white">
+    2
+  </text>
+
+</svg>
