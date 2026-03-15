@@ -246,4 +246,11 @@ gap:18px;
 font-size:0.75rem;
 }
 
+
+  /* Grid sections collapse */
+  .focus-grid,
+  .footprint-grid,
+  .join-grid{
+    grid-template-columns:1fr;
+  }
 }

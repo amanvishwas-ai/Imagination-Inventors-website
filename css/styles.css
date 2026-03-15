@@ -931,19 +931,6 @@ transform:translateY(-50%);
     max-width:100%;
   }
 
-  /* Grid sections collapse */
-  .focus-grid,
-  .footprint-grid,
-  .join-grid{
-    grid-template-columns:1fr;
-  }
-
-  /* Footer metadata stack */
-  .footer-meta{
-    flex-direction:column;
-    gap:18px;
-  }
-
 }
 
 /* ================= MICRO TYPOGRAPHY TUNING ================= */
